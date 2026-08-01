@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services - MediCare</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f4f8; color: #0d47a1; line-height: 1.6; }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            color: #fff; padding: 1rem 2rem; display: flex;
+            justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 15px rgba(21, 101, 192, 0.4);
+        }
+        .logo { font-size: 1.8rem; font-weight: 700; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .logo i { color: #ff1744; }
+        nav ul { display: flex; list-style: none; gap: 1.5rem; }
+        nav a { color: #fff; text-decoration: none; font-weight: 500; }
+        nav a:hover { color: #81d4fa; }
+        .logo i {
+    color: #ff1744;
+    display: inline-block; /* Animation ke liye zaruri hai */
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.3); }
+    56% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            color: #fff; text-align: center; padding: 4rem 1rem;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .hero p { color: #e3f2fd; font-size: 1.1rem; }
+
+        /* SERVICES GRID */
+        .container { max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem; }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
+        }
+        .service-card {
+            background: #fff; padding: 2rem; border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06); text-align: center;
+            transition: all 0.3s ease; border-bottom: 4px solid #42a5f5;
+        }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px rgba(66, 165, 245, 0.2); }
+        .service-icon {
+            width: 70px; height: 70px; background: #e3f2fd; color: #1565c0;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; margin: 0 auto 1.2rem;
+        }
+        .service-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; color: #0d47a1; }
+        .service-card p { color: #555; font-size: 0.95rem; }
+
+        /* FOOTER */
+        footer { background: #0d47a1; color: #fff; text-align: center; padding: 1.5rem; margin-top: 3rem; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><i class="fas fa-heartbeat"></i> MediCare</a>
+        <nav>
+            <ul>
+                <li><a href="file:///D:/helatcare-project/frontend/index.html">Home</a></li>
+                <li><a href="file:///D:/helatcare-project/frontend/about%20us.html">About Us</a></li>
+                <li><a href="file:///D:/helatcare-project/frontend/services.html" style="color: #81d4fa;">Services</a></li>
+                <li><a href="file:///D:/helatcare-project/frontend/privacy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Our Healthcare Services</h1>
+        <p>Providing world-class medical services with modern technology and care.</p>
+    </section>
+
+    <div class="container">
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-calendar-check"></i></div>
+                <h3>Online Appointment Booking</h3>
+                <p>Book instant doctor appointments with specialized doctors in your preferred hospitals without waiting in lines.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-user-md"></i></div>
+                <h3>Doctor Consultation</h3>
+                <p>Get expert advice from certified doctors across various fields like Cardiology, Neurology, Pediatrics, and more.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-ambulance"></i></div>
+                <h3>24/7 Emergency Support</h3>
+                <p>Immediate ambulance dispatch and emergency care support active round the clock for urgent medical situations.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-file-medical"></i></div>
+                <h3>Digital Health Records</h3>
+                <p>Safely access, manage, and download all your past prescriptions, lab test reports, and medical history online.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-pills"></i></div>
+                <h3>Pharmacy & Medicine Delivery</h3>
+                <p>Order prescribed medicines online and get them delivered straight to your doorstep safely and quickly.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-vial"></i></div>
+                <h3>Lab Testing & Diagnostics</h3>
+                <p>Book diagnostic tests and full-body checkups with home sample collection services and fast digital reports.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 MediCare Suite. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

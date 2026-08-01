@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediCare - Admin Panel</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Chart.js for statistics charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Page Auth Protection -->
+    <script>
+        const token = localStorage.getItem('token');
+        const role = localStorage.getItem('userRole');
+
+        if (!token || role !== 'admin') {
+            alert('Access Denied! Please login as Admin.');
+            window.location.href = 'login.html';
+        }
+    </script>
+    <style>
+        /* ========== CSS RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            color: #0d47a1;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ========== HEADER / NAV ========== */
+        header {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 15px rgba(21, 101, 192, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: #ff1744;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            56% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .admin-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .header-right i {
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .header-right i:hover {
+            color: #81d4fa;
+            transform: scale(1.2);
+        }
+
+        .logout-btn {
+            background: rgba(255, 23, 68, 0.3);
+            border: 1px solid rgba(255, 23, 68, 0.5);
+            color: #fff;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .logout-btn:hover {
+            background: rgba(255, 23, 68, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* ========== ADMIN LAYOUT ========== */
+        .admin-container {
+            display: flex;
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            gap: 2rem;
+        }
+
+        /* ========== SIDEBAR ========== */
+        .sidebar {
+            width: 250px;
+            min-width: 250px;
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 25px rgba(66, 165, 245, 0.12);
+            height: fit-content;
+            position: sticky;
+            top: 90px;
+        }
+
+        .sidebar .admin-profile {
+            text-align: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #bbdefb;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar .admin-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #42a5f5;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar .admin-profile h3 {
+            font-size: 1.1rem;
+            color: #0d47a1;
+        }
+
+        .sidebar .admin-profile p {
+            font-size: 0.85rem;
+            color: #1565c0;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.3rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 500;
+        }
+
+        .sidebar-menu li:hover {
+            background: rgba(66, 165, 245, 0.1);
+            transform: translateX(5px);
+        }
+
+        .sidebar-menu li.active {
+            background: linear-gradient(135deg, #42a5f5 0%, #1565c0 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(66, 165, 245, 0.3);
+        }
+
+        .sidebar-menu li i {
+            width: 20px;
+        }
+
+        .sidebar-menu li .badge {
+            background: #ef5350;
+            color: #fff;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            margin-left: auto;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .main-content {
+            flex: 1;
+        }
+
+        /* ========== STATS CARDS ========== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(66, 165, 245, 0.08);
+            border-left: 5px solid #42a5f5;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(66, 165, 245, 0.15);
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.9rem;
+            color: #1565c0;
+            font-weight: 600;
+        }
+
+        .stat-card .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0d47a1;
+            margin: 0.3rem 0;
+        }
+
+        .stat-card .stat-change {
+            font-size: 0.85rem;
+            color: #38a169;
+        }
+
+        .stat-card .stat-change.down {
+            color: #e53e3e;
+        }
+
+        .stat-card:nth-child(2) { border-left-color: #38a169; }
+        .stat-card:nth-child(3) { border-left-color: #ed8936; }
+        .stat-card:nth-child(4) { border-left-color: #9f7aea; }
+
+        /* ========== CHARTS ========== */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(66, 165, 245, 0.08);
+        }
+
+        .chart-card h3 {
+            margin-bottom: 1rem;
+            color: #0d47a1;
+        }
+
+        .chart-card canvas {
+            max-height: 250px;
+            max-width: 100%;
+        }
+
+        /* ========== TABLES ========== */
+        .table-section {
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(66, 165, 245, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .table-header h3 {
+            color: #0d47a1;
+        }
+
+        .table-controls {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .table-controls input,
+        .table-controls select {
+            padding: 0.5rem 1rem;
+            border: 2px solid #bbdefb;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            background: #fff;
+            transition: all 0.3s;
+        }
+
+        .table-controls input:focus,
+        .table-controls select:focus {
+            outline: none;
+            border-color: #42a5f5;
+            box-shadow: 0 0 0 4px rgba(66, 165, 245, 0.1);
+        }
+
+        .table-controls button {
+            background: linear-gradient(135deg, #42a5f5 0%, #1565c0 100%);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .table-controls button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(66, 165, 245, 0.4);
+        }
+
+        .table-controls .danger-btn {
+            background: linear-gradient(135deg, #ef5350 0%, #c62828 100%);
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: linear-gradient(135deg, #42a5f5 0%, #1565c0 100%);
+            color: #fff;
+            padding: 0.8rem 1rem;
+            text-align: left;
+        }
+
+        td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #bbdefb;
+        }
+
+        tr:hover td {
+            background: rgba(66, 165, 245, 0.05);
+        }
+
+        .status-badge {
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .status-badge.confirmed, .status-badge.upcoming {
+            background: linear-gradient(135deg, #a8edea 0%, #7bc6cc 100%);
+            color: #1a5c5c;
+        }
+
+        .status-badge.pending {
+            background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);
+            color: #7c5a00;
+        }
+
+        .status-badge.cancelled {
+            background: linear-gradient(135deg, #ffcdd2 0%, #ef9a9a 100%);
+            color: #7a1a2e;
+        }
+
+        .action-btn {
+            background: #42a5f5;
+            color: #fff;
+            border: none;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            margin-right: 4px;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            background: #0d47a1;
+            transform: scale(1.05);
+        }
+
+        .action-btn.cancel-btn { background: #ef5350; }
+        .action-btn.cancel-btn:hover { background: #c62828; }
+        .action-btn.delete-btn { background: #e53e3e; }
+        .action-btn.delete-btn:hover { background: #c53030; }
+
+        /* ========== NOTIFICATIONS PANEL ========== */
+        .notification-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #bbdefb;
+        }
+
+        .notification-item:last-child { border-bottom: none; }
+        .notification-item i { color: #42a5f5; font-size: 1.2rem; }
+        .notification-item .notif-text { flex: 1; color: #0d47a1; }
+        .notification-item .notif-time { font-size: 0.8rem; color: #64b5f6; }
+        .notification-item .notif-read { color: #38a169; font-size: 0.7rem; }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .charts-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .admin-container { flex-direction: column; padding: 0 1rem; }
+            .sidebar { width: 100%; min-width: auto; position: static; }
+            .sidebar-menu { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+            .sidebar-menu li { padding: 0.5rem 0.8rem; font-size: 0.85rem; }
+            header { padding: 0.8rem 1rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+            .header-right { width: 100%; justify-content: center; flex-wrap: wrap; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .table-header { flex-direction: column; align-items: stretch; }
+            .table-controls { flex-direction: column; }
+            .table-controls input, .table-controls select, .table-controls button { width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .stat-card .stat-number { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i> MediCare
+        </div>
+        <div class="header-right">
+            <span class="admin-badge"><i class="fas fa-user-shield"></i> Admin</span>
+            <i class="fas fa-bell" id="quickNotifBtn" title="Notifications"></i>
+            <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </header>
+
+    <!-- ===== ADMIN CONTAINER ===== -->
+    <div class="admin-container">
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar">
+            <div class="admin-profile">
+                <img src="file:///C:/Users/ADMIN/Downloads/WhatsApp%20Image%202026-07-31%20at%203.48.44%20PM.jpeg" alt="Admin" />
+                <h3>omkar Administrator</h3>
+                <p id="adminEmailText">admin@medicare.com</p>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active" data-section="dashboard">
+                    <i class="fas fa-chart-pie"></i> Dashboard
+                </li>
+                <li data-section="appointments">
+                    <i class="fas fa-calendar-check"></i> Appointments
+                    <span class="badge" id="appBadge">0</span>
+                </li>
+                <li data-section="doctors">
+                    <i class="fas fa-user-md"></i> Doctors
+                    <span class="badge" id="docBadge">5</span>
+                </li>
+                <li data-section="manage-admins">
+                    <i class="fas fa-user-shield"></i> Manage Admins
+                </li>
+                <li data-section="notifications">
+                    <i class="fas fa-bell"></i> Notifications
+                    <span class="badge" id="notifBadge">0</span>
+                </li>
+                <li data-section="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </li>
+            </ul>
+        </aside>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="main-content">
+            <!-- ===== STATS CARDS ===== -->
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Appointments</div>
+                    <div class="stat-number" id="totalAppStat">0</div>
+                    <div class="stat-change"><i class="fas fa-arrow-up"></i> Live System</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Confirmed</div>
+                    <div class="stat-number" id="confirmedAppStat">0</div>
+                    <div class="stat-change"><i class="fas fa-arrow-up"></i> Active Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Pending / Upcoming</div>
+                    <div class="stat-number" id="pendingAppStat">0</div>
+                    <div class="stat-change down"><i class="fas fa-clock"></i> Action Required</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Doctors</div>
+                    <div class="stat-number" id="totalDocStat">5</div>
+                    <div class="stat-change"><i class="fas fa-user-md"></i> Ready</div>
+                </div>
+            </div>
+
+            <!-- ===== CHARTS ===== -->
+            <div class="charts-grid" id="chartsGrid">
+                <div class="chart-card">
+                    <h3><i class="fas fa-chart-line"></i> Weekly Appointments</h3>
+                    <canvas id="weeklyChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3><i class="fas fa-chart-pie"></i> Status Distribution</h3>
+                    <canvas id="statusChart"></canvas>
+                </div>
+            </div>
+
+            <!-- ===== APPOINTMENTS TABLE ===== -->
+            <div class="table-section" id="appointments">
+                <div class="table-header">
+                    <h3><i class="fas fa-calendar-check"></i> Recent Appointments</h3>
+                    <div class="table-controls">
+                        <input type="text" id="searchInput" placeholder="Search patient or doctor..." />
+                        <select id="statusFilter">
+                            <option value="all">All Status</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="upcoming">Upcoming</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <button class="danger-btn" id="clearAllBtn"><i class="fas fa-trash"></i> Clear All</button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Patient</th>
+                                <th>Doctor</th>
+                                <th>Hospital / Location</th>
+                                <th>Date & Time</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="appointmentsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ===== DOCTORS TABLE ===== -->
+            <div class="table-section" id="doctors" style="display: none;">
+                <div class="table-header">
+                    <h3><i class="fas fa-user-md"></i> Doctors List</h3>
+                    <div class="table-controls">
+                        <button id="addDoctorBtn"><i class="fas fa-plus"></i> Add Doctor</button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Specialty</th>
+                                <th>Rating</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="doctorsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ===== MANAGE ADMINS PANEL ===== -->
+            <div class="table-section" id="manage-admins" style="display: none;">
+                <div class="table-header">
+                    <h3><i class="fas fa-user-shield"></i> Grant New Admin Access</h3>
+                </div>
+                
+                <div class="table-controls" style="margin-bottom: 1.5rem; flex-wrap: wrap;">
+                    <input type="email" id="newAdminEmail" placeholder="Enter User Email..." style="flex: 1; min-width: 200px;" />
+                    <input type="password" id="newAdminPassword" placeholder="Set Password for Admin..." style="flex: 1; min-width: 200px;" />
+                    <button id="grantAdminBtn"><i class="fas fa-user-plus"></i> Grant Access</button>
+                </div>
+
+                <div class="table-header">
+                    <h3><i class="fas fa-users-cog"></i> Authorized Admins List</h3>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminListTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ===== NOTIFICATIONS PANEL ===== -->
+            <div class="table-section" id="notifications" style="display: none;">
+                <div class="table-header">
+                    <h3><i class="fas fa-bell"></i> Notifications</h3>
+                    <div class="table-controls">
+                        <button id="markAllReadBtn"><i class="fas fa-check-double"></i> Mark All Read</button>
+                    </div>
+                </div>
+                <div id="notificationsList"></div>
+            </div>
+
+            <!-- ===== SETTINGS PANEL ===== -->
+            <div class="table-section" id="settings" style="display: none;">
+                <div class="table-header">
+                    <h3><i class="fas fa-cog"></i> Admin Settings</h3>
+                </div>
+                <div style="padding: 1rem 0;">
+                    <p><b>System Version:</b> 2026.1.0 (MediCare Suite)</p>
+                    <p style="margin-top: 10px;"><b>Data Storage:</b> Browser LocalStorage Active</p>
+                    <button class="danger-btn" id="resetSystemBtn" style="margin-top: 15px;"><i class="fas fa-sync"></i> Reset All System Data</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const userEmail = localStorage.getItem('userEmail');
+            if (userEmail) {
+                document.getElementById('adminEmailText').innerText = userEmail;
+            }
+
+            // ---------- 1. INITIAL SYSTEM DATA ----------
+            let appointments = JSON.parse(localStorage.getItem('medicareRecords')) || [
+                { fullName: 'Alice Wonder', doctor: 'Dr. Amit Sharma (Cardiology)', hospital: 'Lilavati Hospital', location: 'Mumbai', date: '2026-07-10', time: '10:00 AM', status: 'confirmed' },
+                { fullName: 'Bob Smith', doctor: 'Dr. Rahul Verma (Neurology)', hospital: 'Sahyadri Hospital', location: 'Pune', date: '2026-07-12', time: '02:00 PM', status: 'Upcoming' }
+            ];
+
+            let doctors = JSON.parse(localStorage.getItem('medicareDoctors')) || [
+                { id: 1, name: 'Dr. Amit Sharma', specialty: 'Cardiologist', rating: 4.9, status: 'Available' },
+                { id: 2, name: 'Dr. Priya Patel', specialty: 'Dentist', rating: 4.8, status: 'Available' },
+                { id: 3, name: 'Dr. Rahul Verma', specialty: 'Neurologist', rating: 4.7, status: 'On Leave' },
+                { id: 4, name: 'Dr. Arjun Mehta', specialty: 'Orthopedic', rating: 4.9, status: 'Available' },
+                { id: 5, name: 'Dr. Sneha Joshi', specialty: 'Gynecologist', rating: 4.6, status: 'Available' }
+            ];
+
+            let adminList = JSON.parse(localStorage.getItem('medicareAdminsList')) || [
+                { id: '1', email: 'admin@medicare.com', role: 'Admin' },
+                { id: '2', email: 'pratik09@gmail.com', role: 'Admin' }
+            ];
+
+            let notifications = JSON.parse(localStorage.getItem('medicareNotifications')) || [
+                { id: 1, text: 'System Initialized Successfully', time: 'Just now', read: false }
+            ];
+
+            localStorage.setItem('medicareRecords', JSON.stringify(appointments));
+            localStorage.setItem('medicareDoctors', JSON.stringify(doctors));
+            localStorage.setItem('medicareAdminsList', JSON.stringify(adminList));
+
+            // ---------- DOM REFS ----------
+            const appointmentsTableBody = document.getElementById('appointmentsTableBody');
+            const doctorsTableBody = document.getElementById('doctorsTableBody');
+            const notificationsList = document.getElementById('notificationsList');
+            const searchInput = document.getElementById('searchInput');
+            const statusFilter = document.getElementById('statusFilter');
+            const clearAllBtn = document.getElementById('clearAllBtn');
+            const addDoctorBtn = document.getElementById('addDoctorBtn');
+            const markAllReadBtn = document.getElementById('markAllReadBtn');
+            const resetSystemBtn = document.getElementById('resetSystemBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const sidebarItems = document.querySelectorAll('.sidebar-menu li');
+
+            const statsGrid = document.getElementById('statsGrid');
+            const chartsGrid = document.getElementById('chartsGrid');
+
+            const grantAdminBtn = document.getElementById('grantAdminBtn');
+            const newAdminEmail = document.getElementById('newAdminEmail');
+            const newAdminPassword = document.getElementById('newAdminPassword');
+            const adminListTableBody = document.getElementById('adminListTableBody');
+
+            // ---------- 2. RENDER FUNCTIONS ----------
+            function syncLocalStorage() {
+                localStorage.setItem('medicareRecords', JSON.stringify(appointments));
+                localStorage.setItem('medicareDoctors', JSON.stringify(doctors));
+                localStorage.setItem('medicareNotifications', JSON.stringify(notifications));
+                localStorage.setItem('medicareAdminsList', JSON.stringify(adminList));
+                updateStats();
+                updateCharts();
+            }
+
+            function updateStats() {
+                document.getElementById('totalAppStat').innerText = appointments.length;
+                document.getElementById('confirmedAppStat').innerText = appointments.filter(a => a.status.toLowerCase() === 'confirmed').length;
+                document.getElementById('pendingAppStat').innerText = appointments.filter(a => a.status.toLowerCase() !== 'confirmed' && a.status.toLowerCase() !== 'cancelled').length;
+                document.getElementById('totalDocStat').innerText = doctors.length;
+
+                document.getElementById('appBadge').innerText = appointments.length;
+                document.getElementById('docBadge').innerText = doctors.length;
+                document.getElementById('notifBadge').innerText = notifications.filter(n => !n.read).length;
+            }
+
+            function renderAppointments() {
+                const search = searchInput.value.toLowerCase();
+                const status = statusFilter.value.toLowerCase();
+
+                let filtered = appointments.filter(app => {
+                    const nameMatch = (app.fullName || app.patient || '').toLowerCase().includes(search);
+                    const docMatch = (app.doctor || '').toLowerCase().includes(search);
+                    const appStatus = (app.status || 'Upcoming').toLowerCase();
+                    const statusMatch = (status === 'all') || (appStatus === status);
+                    return (nameMatch || docMatch) && statusMatch;
+                });
+
+                if (filtered.length === 0) {
+                    appointmentsTableBody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:#757575;">No Appointments Found</td></tr>`;
+                    return;
+                }
+
+                appointmentsTableBody.innerHTML = filtered.map((app, idx) => {
+                    const patientName = app.fullName || app.patient || 'N/A';
+                    const appStatus = app.status || 'Upcoming';
+                    const stLower = appStatus.toLowerCase();
+                    const locationHosp = `${app.hospital || ''} ${app.location ? '(' + app.location + ')' : ''}` || 'General Hospital';
+
+                    return `
+                        <tr>
+                            <td>${idx + 1}</td>
+                            <td><b>${patientName}</b></td>
+                            <td>${app.doctor || 'N/A'}</td>
+                            <td>${locationHosp}</td>
+                            <td>${app.date || ''} <small>(${app.time || ''})</small></td>
+                            <td><span class="status-badge ${stLower}">${appStatus}</span></td>
+                            <td>
+                                ${stLower !== 'confirmed' ? `<button class="action-btn" onclick="updateAppStatus(${idx}, 'confirmed')">Confirm</button>` : ''}
+                                ${stLower !== 'cancelled' ? `<button class="action-btn cancel-btn" onclick="updateAppStatus(${idx}, 'cancelled')">Cancel</button>` : ''}
+                                <button class="action-btn delete-btn" onclick="deleteAppointment(${idx})"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    `;
+                }).join('');
+            }
+
+            function renderDoctors() {
+                doctorsTableBody.innerHTML = doctors.map((doc, idx) => `
+                    <tr>
+                        <td>${idx + 1}</td>
+                        <td><b>${doc.name}</b></td>
+                        <td>${doc.specialty}</td>
+                        <td>⭐ ${doc.rating}</td>
+                        <td><span class="status-badge ${doc.status === 'Available' ? 'confirmed' : 'pending'}">${doc.status}</span></td>
+                        <td>
+                            <button class="action-btn delete-btn" onclick="deleteDoctor(${idx})"><i class="fas fa-trash"></i> Remove</button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
+            function renderNotifications() {
+                if (notifications.length === 0) {
+                    notificationsList.innerHTML = `<p style="text-align:center; padding:1rem; color:#888;">No new notifications</p>`;
+                    return;
+                }
+                notificationsList.innerHTML = notifications.map(n => `
+                    <div class="notification-item">
+                        <i class="fas fa-${n.read ? 'envelope-open' : 'bell'}"></i>
+                        <div class="notif-text">${n.text}</div>
+                        <div class="notif-time">${n.time}</div>
+                        ${!n.read ? `<span class="notif-read"><i class="fas fa-circle" style="color: #42a5f5; font-size: 0.5rem;"></i> New</span>` : ''}
+                    </div>
+                `).join('');
+            }
+
+            // ---------- RENDER ADMIN TABLE UI ----------
+            function renderAdminTable() {
+                if (adminList.length === 0) {
+                    adminListTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#757575;">No Admins Found</td></tr>`;
+                    return;
+                }
+
+                adminListTableBody.innerHTML = adminList.map((admin, idx) => {
+                    const identifier = admin._id || admin.id || admin.email;
+                    return `
+                    <tr>
+                        <td>${idx + 1}</td>
+                        <td><b>${admin.email}</b></td>
+                        <td><span class="status-badge confirmed">${admin.role || 'Admin'}</span></td>
+                        <td>Active Access</td>
+                        <td>
+                            <button class="action-btn delete-btn" onclick="removeAdminAccess('${identifier}')"><i class="fas fa-user-minus"></i> Remove Access</button>
+                        </td>
+                    </tr>
+                `}).join('');
+            }
+
+            // ---------- FETCH ADMINS LIST ----------
+            window.fetchAdminsList = async function() {
+                try {
+                    const token = localStorage.getItem('token');
+                    const res = await fetch('http://localhost:5000/api/admin/list', {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    const contentType = res.headers.get("content-type");
+                    if (res.ok && contentType && contentType.includes("application/json")) {
+                        const data = await res.json();
+                        if (data && Array.isArray(data) && data.length > 0) {
+                            adminList = data;
+                            localStorage.setItem('medicareAdminsList', JSON.stringify(adminList));
+                        }
+                    }
+                } catch (err) {
+                    console.log('Backend not reachable, loading from LocalStorage');
+                }
+                renderAdminTable();
+            };
+
+            if (grantAdminBtn) {
+                grantAdminBtn.addEventListener('click', async function() {
+                    const email = newAdminEmail.value.trim();
+                    const password = newAdminPassword.value.trim();
+
+                    if (!email) return alert('Please enter user email');
+                    if (!password) return alert('Please set a password for the admin account');
+
+                    try {
+                        const token = localStorage.getItem('token');
+                        await fetch('http://localhost:5000/api/admin/add-admin', {
+                            method: 'POST',
+                            headers: { 
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}` 
+                            },
+                            body: JSON.stringify({ email, password })
+                        });
+                    } catch (err) {
+                        console.log('Saved admin locally');
+                    }
+
+                    adminList.push({ id: Date.now().toString(), email: email, role: 'Admin' });
+                    syncLocalStorage();
+                    alert('Admin Access Granted Successfully!');
+                    newAdminEmail.value = '';
+                    newAdminPassword.value = '';
+                    renderAdminTable();
+                });
+            }
+
+            // ---------- GUARANTEED REMOVE ADMIN FUNCTION ----------
+            window.removeAdminAccess = async function(adminIdentifier) {
+                if (!confirm('Are you sure you want to remove admin access for this account?')) return;
+
+                // 1. Immediately remove from local array
+                adminList = adminList.filter(a => 
+                    a.id !== adminIdentifier && 
+                    a._id !== adminIdentifier && 
+                    a.email !== adminIdentifier
+                );
+
+                // 2. Save to localstorage and update screen instantly
+                syncLocalStorage();
+                renderAdminTable();
+
+                // 3. Try backend API silently
+                try {
+                    const token = localStorage.getItem('token');
+                    await fetch(`http://localhost:5000/api/admin/remove-admin`, {
+                        method: 'DELETE',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}` 
+                        },
+                        body: JSON.stringify({ id: adminIdentifier, email: adminIdentifier })
+                    });
+                } catch (err) {
+                    console.log('Backend delete silent fallback');
+                }
+
+                alert('Admin access removed successfully!');
+            };
+
+            // ---------- 3. GLOBAL ACTIONS ----------
+            window.updateAppStatus = function(index, newStatus) {
+                appointments[index].status = newStatus;
+                notifications.unshift({
+                    id: Date.now(),
+                    text: `Status of ${appointments[index].fullName || 'Patient'} updated to ${newStatus}`,
+                    time: 'Just now',
+                    read: false
+                });
+                syncLocalStorage();
+                renderAll();
+            };
+
+            window.deleteAppointment = function(index) {
+                if (confirm('Delete this appointment record permanently?')) {
+                    appointments.splice(index, 1);
+                    syncLocalStorage();
+                    renderAll();
+                }
+            };
+
+            window.deleteDoctor = function(index) {
+                if (confirm('Remove doctor from MediCare system?')) {
+                    doctors.splice(index, 1);
+                    syncLocalStorage();
+                    renderAll();
+                }
+            };
+
+            clearAllBtn.addEventListener('click', function() {
+                if (confirm('Are you sure you want to clear all appointment records?')) {
+                    appointments = [];
+                    syncLocalStorage();
+                    renderAll();
+                }
+            });
+
+            addDoctorBtn.addEventListener('click', function() {
+                const name = prompt('Enter Doctor Full Name:');
+                if (!name) return;
+                const specialty = prompt('Enter Specialty (e.g. Cardiologist):');
+                if (!specialty) return;
+
+                doctors.push({
+                    id: Date.now(),
+                    name: name.startsWith('Dr.') ? name : 'Dr. ' + name,
+                    specialty: specialty,
+                    rating: 4.8,
+                    status: 'Available'
+                });
+
+                notifications.unshift({
+                    id: Date.now(),
+                    text: `New Doctor Added: ${name}`,
+                    time: 'Just now',
+                    read: false
+                });
+
+                syncLocalStorage();
+                renderAll();
+            });
+
+            markAllReadBtn.addEventListener('click', function() {
+                notifications.forEach(n => n.read = true);
+                syncLocalStorage();
+                renderNotifications();
+            });
+
+            resetSystemBtn.addEventListener('click', function() {
+                if (confirm('Warning: This will clear all custom appointments and reset data!')) {
+                    localStorage.clear();
+                    location.reload();
+                }
+            });
+
+            logoutBtn.addEventListener('click', function() {
+                localStorage.removeItem('token');
+                localStorage.removeItem('userRole');
+                localStorage.removeItem('userEmail');
+                alert('Logged out successfully!');
+                window.location.href = 'login.html'; 
+            });
+
+            if (searchInput) searchInput.addEventListener('keyup', renderAppointments);
+            if (statusFilter) statusFilter.addEventListener('change', renderAppointments);
+
+            // ---------- 4. CHARTS CONFIGURATION ----------
+            let weeklyChart, statusChart;
+
+            function initCharts() {
+                const weeklyCtx = document.getElementById('weeklyChart').getContext('2d');
+                weeklyChart = new Chart(weeklyCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'Appointments',
+                            data: [5, 10, 8, 15, 12, 6, 4],
+                            backgroundColor: 'rgba(66, 165, 245, 0.7)',
+                            borderColor: 'rgba(21, 101, 192, 1)',
+                            borderWidth: 2,
+                            borderRadius: 6
+                        }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
+
+                const statusCtx = document.getElementById('statusChart').getContext('2d');
+                statusChart = new Chart(statusCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Confirmed', 'Pending/Upcoming', 'Cancelled'],
+                        datasets: [{
+                            data: [1, 1, 0],
+                            backgroundColor: ['#38a169', '#ed8936', '#e53e3e']
+                        }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
+            }
+
+            function updateCharts() {
+                if (statusChart) {
+                    const confirmed = appointments.filter(a => (a.status || '').toLowerCase() === 'confirmed').length;
+                    const cancelled = appointments.filter(a => (a.status || '').toLowerCase() === 'cancelled').length;
+                    const pending = appointments.length - (confirmed + cancelled);
+
+                    statusChart.data.datasets[0].data = [confirmed, pending, cancelled];
+                    statusChart.update();
+                }
+            }
+
+            // ---------- 5. NAVIGATION / TAB SWITCHING ----------
+            function navigateTo(section) {
+                document.querySelectorAll('.table-section').forEach(el => el.style.display = 'none');
+
+                if (section === 'dashboard') {
+                    statsGrid.style.display = 'grid';
+                    chartsGrid.style.display = 'grid';
+                    document.getElementById('appointments').style.display = 'block';
+                } else {
+                    statsGrid.style.display = 'none';
+                    chartsGrid.style.display = 'none';
+
+                    const targetSec = document.getElementById(section);
+                    if (targetSec) targetSec.style.display = 'block';
+                }
+
+                sidebarItems.forEach(item => item.classList.remove('active'));
+                const activeItem = Array.from(sidebarItems).find(item => item.getAttribute('data-section') === section);
+                if (activeItem) activeItem.classList.add('active');
+
+                if (section === 'manage-admins') {
+                    fetchAdminsList();
+                }
+            }
+
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const sec = this.getAttribute('data-section');
+                    if (sec) navigateTo(sec);
+                });
+            });
+
+            document.getElementById('quickNotifBtn').addEventListener('click', () => navigateTo('notifications'));
+
+            // ---------- INITIALIZE RENDER ----------
+            function renderAll() {
+                renderAppointments();
+                renderDoctors();
+                renderNotifications();
+                renderAdminTable();
+                updateStats();
+            }
+
+            initCharts();
+            renderAll();
+            updateCharts();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emergency Ambulance - MediCare</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- CSS Path -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Page Specific Styles & Animations -->
+    <style>
+        /* Hero Section Customization */
+        .hero-ambulance {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 20px 30px;
+        }
+
+        /* Filter Controls */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-input, .filter-select {
+            padding: 12px 18px;
+            border: 2px solid #42a5f5;
+            border-radius: 25px;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .filter-input:focus, .filter-select:focus {
+            box-shadow: 0 0 10px rgba(66, 165, 245, 0.5);
+        }
+
+        /* Card Container & Grid */
+        .ambulance-wrapper {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        .ambulance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 10px;
+        }
+
+        /* Location Card Design & Animation */
+        .location-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #42a5f5;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .location-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            border-top-color: #e53935;
+        }
+
+        .location-card .icon-pin {
+            font-size: 38px;
+            color: #e53935;
+            margin-bottom: 12px;
+            animation: pulse 2s infinite;
+        }
+
+        .location-card h3 {
+            font-size: 20px;
+            color: #1a252f;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .location-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            min-height: 40px;
+        }
+
+        .location-card .helpline {
+            font-weight: bold;
+            font-size: 16px;
+            color: #1e88e5;
+            margin-bottom: 18px;
+        }
+
+        .btn-call {
+            background-color: #1e88e5;
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-call:hover {
+            background-color: #e53935;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="ambulance-page">
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i> MediCare
+        </div>
+        <nav>
+            <a href="file:///D:/helatcare-project/frontend/index.html">Home</a>
+            <a href="file:///D:/helatcare-project/frontend/doctor.html">Doctors</a>
+            <a href="file:///D:/helatcare-project/frontend/booking.html">Appointment</a>
+            <a href="file:///D:/helatcare-project/frontend/records.html">Records</a>
+            <a href="file:///D:/helatcare-project/frontend/login.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    
+            </a>
+            <a href="file:///D:/helatcare-project/frontend/ambulance.html" class="active">
+                <i class="fas fa-car" title="Ambulance" style="color:#e53935;"></i>
+            </a>
+        </div>
+    </header>
+
+   
+
+    <!-- Main Content Section -->
+    <section class="features-section">
+
+        <!-- Search & Dropdown Filter -->
+        <div class="filter-container">
+            <input type="text" id="citySearch" class="filter-input" placeholder="🔍 Search city..." style="width: 280px;" />
+            <select id="citySelect" class="filter-select" style="width: 220px;">
+                <option value="All">All Locations</option>
+                <option value="Nagpur">Nagpur</option>
+                <option value="Chhatrapati Sambhajinagar">Chhatrapati Sambhajinagar</option>
+                <option value="Jalna">Jalna</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Pune">Pune</option>
+            </select>
+        </div>
+
+        <!-- Ambulance Cards Grid -->
+        <div class="ambulance-wrapper">
+            <div class="ambulance-grid" id="ambulanceGrid">
+
+                <!-- Nagpur -->
+                <div class="location-card" data-city="Nagpur">
+                    <i class="fas fa-map-marker-alt icon-pin"></i>
+                    <h3>Nagpur</h3>
+                    <p>Emergency Ambulance Service available 24×7</p>
+                    <div class="helpline"><i class="fas fa-phone-alt"></i> 108 / 112</div>
+                    <a href="tel:108" class="btn-call"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+
+                <!-- Chhatrapati Sambhajinagar -->
+                <div class="location-card" data-city="Chhatrapati Sambhajinagar">
+                    <i class="fas fa-map-marker-alt icon-pin"></i>
+                    <h3>Chhatrapati Sambhajinagar</h3>
+                    <p>Government Emergency Medical Service</p>
+                    <div class="helpline"><i class="fas fa-phone-alt"></i> 102 / 108 / 112</div>
+                    <a href="tel:108" class="btn-call"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+
+                <!-- Jalna -->
+                <div class="location-card" data-city="Jalna">
+                    <i class="fas fa-map-marker-alt icon-pin"></i>
+                    <h3>Jalna</h3>
+                    <p>Fast ambulance response service</p>
+                    <div class="helpline"><i class="fas fa-phone-alt"></i> 108 / 102 / 112</div>
+                    <a href="tel:108" class="btn-call"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+
+                <!-- Mumbai -->
+                <div class="location-card" data-city="Mumbai">
+                    <i class="fas fa-map-marker-alt icon-pin"></i>
+                    <h3>Mumbai</h3>
+                    <p>High priority emergency ambulance network</p>
+                    <div class="helpline"><i class="fas fa-phone-alt"></i> 108 / 112</div>
+                    <a href="tel:108" class="btn-call"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+
+                <!-- Pune -->
+                <div class="location-card" data-city="Pune">
+                    <i class="fas fa-map-marker-alt icon-pin"></i>
+                    <h3>Pune</h3>
+                    <p>24×7 emergency ambulance service</p>
+                    <div class="helpline"><i class="fas fa-phone-alt"></i> 108 / 112</div>
+                    <a href="tel:108" class="btn-call"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Emergency Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Ambulance Service</p>
+            </div>
+            <div class="stat-item">
+                <h3>108</h3>
+                <p>Toll-Free Helpline</p>
+            </div>
+            <div class="stat-item">
+                <h3>15 Mins</h3>
+                <p>Average Response Time</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Emergency Support</p>
+            </div>
+        </div>
+    </section>
+
+  
+    <!-- JavaScript Path -->
+    <script src="js/script.js"></script>
+
+    <!-- Inline Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('citySearch');
+            const selectDropdown = document.getElementById('citySelect');
+            const cards = document.querySelectorAll('.location-card');
+
+            function filterCards() {
+                const query = searchInput.value.toLowerCase().trim();
+                const selectedCity = selectDropdown.value.toLowerCase();
+
+                cards.forEach(card => {
+                    const cityName = card.getAttribute('data-city').toLowerCase();
+                    const matchesSearch = cityName.includes(query);
+                    const matchesDropdown = (selectedCity === 'all') || (cityName === selectedCity);
+
+                    if (matchesSearch && matchesDropdown) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            if (searchInput) searchInput.addEventListener('input', filterCards);
+            if (selectDropdown) selectDropdown.addEventListener('change', filterCards);
+        });
+    </script>
+</body>
+</html>

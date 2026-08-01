@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Doctors - MediCare</title>
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Doctor Image Style -->
+    <style>
+        .doctor-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            display: block;
+            border: 3px solid #42a5f5;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<i class="fas fa-heartbeat"></i> MediCare
+</div>
+
+<nav>
+<a href="file:///D:/helatcare-project/frontend/index.html">Home</a>
+<a href="file:///D:/helatcare-project/frontend/doctor.html" class="active">Doctors</a>
+<a href="file:///D:/helatcare-project/frontend/boking%20from.html ">Appointment</a>
+<a href="file:///D:/helatcare-project/frontend/records.html">Records</a>
+<a href="file:///D:/helatcare-project/frontend/login.html" class="logout-btn">
+<i class="fas fa-sign-out-alt"></i> Logout
+</a>
+</nav>
+
+<div class="nav-icons">
+
+
+<a href="file:///D:/helatcare-project/frontend/ambulance.html">
+<i class="fas fa-car"></i>
+</a>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<h1>
+<i class="fas fa-user-md"></i>
+Our Expert Doctors
+</h1>
+
+<p>
+Find experienced specialists and book your appointment instantly.
+</p>
+
+</section>
+
+
+<section class="features-section">
+
+<h2 class="section-title">
+Search Doctors
+</h2>
+
+
+<div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search Doctor..."
+style="padding:15px;width:320px;border-radius:10px;border:2px solid #42a5f5;font-size:16px;">
+
+
+<select
+id="deptSelect"
+style="padding:15px;width:250px;border-radius:10px;border:2px solid #42a5f5;font-size:16px;">
+
+<option value="All">All Departments</option>
+<option value="Cardiology">Cardiology</option>
+<option value="Dentist">Dentist</option>
+<option value="Neurology">Neurology</option>
+<option value="Pediatrics">Pediatrics</option>
+<option value="Orthopedic">Orthopedic</option>
+<option value="Gynecology">Gynecology</option>
+
+</select>
+
+</div>
+
+
+
+<div class="features-grid">
+
+<!-- Doctor 1 -->
+<div class="feature-card">
+    <img src="images/doctor1.jpg" alt="Dr. Amit Sharma" class="doctor-img">
+    <h3>Dr. Amit Sharma</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 10 Years</p>
+    <p>Consultation : ₹500</p>
+    <p>⭐ 4.9 Rating</p>
+    
+    <!-- Link me URL Parameters add kiye gaye hain -->
+    <a href="boking%20from.html?doctor=Dr.%20Amit%20Sharma&hospital=City%20Care%20Hospital&location=Mumbai" class="btn">
+        Book Appointment
+    </a>
+</div>
+
+<!-- Doctor 2 -->
+<div class="feature-card">
+    <img src="images/doctor2.jpg" alt="Dr. Priya Patel" class="doctor-img">
+    <h3>Dr. Priya Patel</h3>
+    <p><b>Department:</b> <span class="dept-name">Dentist</span></p>
+    <p>Experience : 8 Years</p>
+    <p>Consultation : ₹400</p>
+    <p>⭐ 4.8 Rating</p>
+    
+    <a href="boking%20from.html?doctor=Dr.%20Priya%20Patel&hospital=Apollo%20Clinic&location=Pune" class="btn">
+        Book Appointment
+    </a>
+</div>
+</div>
+
+</section>
+
+
+
+<script src="js/main.js"></script>
+
+<!-- ===== SEARCH & DEPARTMENT FILTER SCRIPT ===== -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        const deptSelect = document.getElementById('deptSelect');
+        const doctorCards = document.querySelectorAll('.feature-card');
+
+        function filterDoctors() {
+            const searchValue = searchInput.value.toLowerCase().trim();
+            const selectedDept = deptSelect.value.toLowerCase().trim();
+
+            doctorCards.forEach(card => {
+                const doctorName = card.querySelector('h3').textContent.toLowerCase();
+                const deptName = card.querySelector('.dept-name').textContent.toLowerCase();
+
+                // Check Name Match
+                const matchesSearch = doctorName.includes(searchValue);
+                
+                // Check Department Match
+                const matchesDept = (selectedDept === 'all') || (deptName === selectedDept);
+
+                // Show or Hide Doctor Card
+                if (matchesSearch && matchesDept) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Live Event Listeners
+        if (searchInput) searchInput.addEventListener('keyup', filterDoctors);
+        if (deptSelect) deptSelect.addEventListener('change', filterDoctors);
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy - MediCare</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f4f8; color: #333; line-height: 1.7; }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            color: #fff; padding: 1rem 2rem; display: flex;
+            justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 15px rgba(21, 101, 192, 0.4);
+        }
+        .logo { font-size: 1.8rem; font-weight: 700; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .logo i { color: #ff1744; }
+        nav ul { display: flex; list-style: none; gap: 1.5rem; }
+        nav a { color: #fff; text-decoration: none; font-weight: 500; }
+        nav a:hover { color: #81d4fa; }
+        .logo i {
+    color: #ff1744;
+    display: inline-block; /* Animation ke liye zaruri hai */
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.3); }
+    56% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            color: #fff; text-align: center; padding: 3.5rem 1rem;
+        }
+        .hero h1 { font-size: 2.3rem; margin-bottom: 0.5rem; }
+        .hero p { color: #e3f2fd; font-size: 1rem; }
+
+        /* CONTENT CONTAINER */
+        .policy-container {
+            max-width: 900px; margin: 3rem auto; background: #fff;
+            padding: 2.5rem; border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+        .policy-container h2 { color: #0d47a1; font-size: 1.4rem; margin: 1.8rem 0 0.8rem; border-left: 4px solid #42a5f5; padding-left: 10px; }
+        .policy-container p { color: #555; margin-bottom: 1rem; font-size: 0.98rem; }
+        .policy-container ul { margin-left: 1.5rem; margin-bottom: 1rem; color: #555; }
+        .policy-container li { margin-bottom: 0.5rem; }
+
+        /* FOOTER */
+        footer { background: #0d47a1; color: #fff; text-align: center; padding: 1.5rem; margin-top: 3rem; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 1rem; }
+            .policy-container { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><i class="fas fa-heartbeat"></i> MediCare</a>
+        <nav>
+            <ul>
+                <li><a href="file:///D:/helatcare-project/frontend/index.html">Home</a></li>
+                <li><a href="file:///D:/helatcare-project/frontend/about%20us.html" style="color: #81d4fa;"s>About Us</a></li>
+                <li><a href="file:///D:/helatcare-project/frontend/services.html">Services</a></li>
+                <li><a href="file:///D:/helatcare-project/frontend/privacy.html" style="color: #81d4fa;">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Privacy Policy</h1>
+        <p>Last updated: July 2026 | How we protect your data</p>
+    </section>
+
+    <div class="policy-container">
+        <p>At <b>MediCare</b>, we value your privacy and are committed to protecting your personal and medical information. This Privacy Policy outlines how we collect, use, and safeguard your data when you use our web platform.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>When you use MediCare, we may collect the following personal information:</p>
+        <ul>
+            <li><b>Personal Details:</b> Full name, email address, phone number, date of birth.</li>
+            <li><b>Medical Data:</b> Appointment details, doctor preferences, medical records uploaded by you.</li>
+            <li><b>Technical Data:</b> IP address, browser type, device information, and LocalStorage data.</li>
+        </ul>
+
+        <h2>2. How We Use Your Data</h2>
+        <p>We use the collected information solely for healthcare management purposes:</p>
+        <ul>
+            <li>To book and manage hospital appointments with doctors.</li>
+            <li>To manage user authentication and role-based access (Admin/Patient).</li>
+            <li>To send important notifications and status updates regarding your bookings.</li>
+        </ul>
+
+        <h2>3. Data Storage & Security</h2>
+        <p>We prioritize data protection using modern security standards. Your credentials and sessions are protected using secure token systems (`localStorage` tokens). We do not share or sell your medical records or personal details to third-party marketing companies.</p>
+
+        <h2>4. Cookies & LocalStorage</h2>
+        <p>MediCare uses browser LocalStorage to store system records (e.g., admin preferences, temporary appointment sessions) to give you a fast, uninterrupted experience without losing progress.</p>
+
+        <h2>5. Your Data Rights</h2>
+        <p>You have full control over your data. You can request account deletion, clear your local stored data anytime, or update your information through the platform settings.</p>
+
+        <h2>6. Contact Us</h2>
+        <p>If you have any questions or concerns regarding this Privacy Policy, feel free to reach out to our privacy officer at <b>privacy@medicare.com</b>.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 MediCare Suite. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Appointment - MediCare</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- CSS Path -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="home-page">
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i> MediCare
+        </div>
+        <nav>
+            <a href="file:///D:/helatcare-project/frontend/index.html">Home</a>
+            <a href="file:///D:/helatcare-project/frontend/doctor.html">Doctors</a>
+            <a href="file:///D:/helatcare-project/frontend/booking.html" class="active">Appointment</a>
+            <a href="file:///D:/helatcare-project/frontend/records.html">Records</a>
+            <a href="file:///D:/helatcare-project/frontend/login.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+        <div class="nav-icons">
+            <a href="file:///D:/helatcare-project/frontend/ambulance.html">
+                <i class="fas fa-car" title="Ambulance"></i>
+            </a>
+        </div>
+    </header>
+
+    <section class="features-section" style="padding-top: 3rem;">
+        <div style="max-width: 650px; margin: 0 auto; background: #ffffff; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+            
+            <h2 style="text-align: center; color: #0d47a1; margin-bottom: 1.8rem; font-size: 2rem;">Book Appointment</h2>
+            
+            <form id="appointmentForm">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight: 600; color: #424242; font-size: 0.9rem;">Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter Full Name" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #bbdefb; font-size: 0.95rem; outline: none; background: #f8fbff;">
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight: 600; color: #424242; font-size: 0.9rem;">Email</label>
+                    <input type="email" id="email" placeholder="Enter Email Address" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #bbdefb; font-size: 0.95rem; outline: none; background: #f8fbff;">
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight: 600; color: #424242; font-size: 0.9rem;">Phone</label>
+                    <input type="tel" id="phone" placeholder="Enter Phone Number" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #bbdefb; font-size: 0.95rem; outline: none; background: #f8fbff;">
+                </div>
+
+                <!-- Step 1: Select Location -->
+                <div style="margin-bottom: 1rem;">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight: 600; color: #424242; font-size: 0.9rem;">Select Location</label>
+                    <select id="locationSelect" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #bbdefb; font-size: 0.95rem; outline: none; background: #f8fbff;">
+                        <option value="">Choose Location</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Pune">Pune</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Chh.Sambhjinager">Chh.Sambhjinager</option>
+                    </select>
+                </div>
+
+                <!-- Step 2: Select Hospital -->
+                <div style="margin-bottom: 1rem;">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight: 600; color: #424242; font-size: 0.9rem;">Select Hospital</label>
+                    <select id="hospitalSelect" disabled required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #bbdefb; font-size: 0.95rem; outline: none; background: #f8fbff;">
+                        <option value="">First Select Location</option>
+                    </select>
+                </div>
+
+                <!-- Step 3: Select Doctor -->
+                <div style="margin-bottom: 1rem;">
+                    <label style="display:block; margin-bottom: 0.4rem; font-weight: 600; color: #424242; font-size: 0.9rem;">Select Doctor</label>
+                    <select id="doctorSelect" disabled required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #bbdefb; font-size: 0.95rem; outline: none; background: #f8fbff;">
+                        <option value="">First Select Hospital</option>
+                    </select>
+                </div>
+
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <label style="display:block; margin-bottom: 0.4rem; font-weight: 600; color: #424242; font-size: 0.9rem;">Date</label>
+                        <input type="date" id="bookingDate" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #bbdefb; font-size: 0.95rem; outline: none; background: #f8fbff;">
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <label style="display:block; margin-bottom: 0.4rem; font-weight: 600; color: #424242; font-size: 0.9rem;">Time Slot</label>
+                        <select id="bookingTime" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #bbdefb; font-size: 0.95rem; outline: none; background: #f8fbff;">
+                            <option value="">Select Time</option>
+                            <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
+                            <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM</option>
+                            <option value="06:00 PM - 08:00 PM">06:00 PM - 08:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; font-size: 1.1rem; text-align: center; border-radius: 10px;">Book Appointment</button>
+            </form>
+
+        </div>
+    </section>
+
+    <!-- Booking Logic & Auto Fill Script -->
+    <script>
+        // Location -> Hospital -> Doctor Data Hierarchy
+        const dataHierarchy = {
+            "Mumbai": {
+                "Lilavati Hospital": ["Dr. Amit Sharma (Cardiology)", "Dr. Priya Patel (Dentist)"],
+                "Kokilaben Hospital": ["Dr. Rahul Verma (Neurology)", "Dr. Neha Singh (Pediatrics)"]
+            },
+            "Pune": {
+                "Ruby Hall Clinic": ["Dr. Arjun Mehta (Orthopedic)", "Dr. Sneha Joshi (Gynecology)"],
+                "Sahyadri Hospital": ["Dr. Amit Sharma (Cardiology)", "Dr. Rahul Verma (Neurology)"]
+            },
+            "Delhi": {
+                "AIIMS Hospital": ["Dr. Priya Patel (Dentist)", "Dr. Neha Singh (Pediatrics)"],
+                "Max Healthcare": ["Dr. Arjun Mehta (Orthopedic)", "Dr. Sneha Joshi (Gynecology)"]
+            }
+        };
+
+        const locationSelect = document.getElementById("locationSelect");
+        const hospitalSelect = document.getElementById("hospitalSelect");
+        const doctorSelect = document.getElementById("doctorSelect");
+        const appointmentForm = document.getElementById("appointmentForm");
+
+        // Helper Function: Populate Hospitals based on Location
+        function populateHospitals(loc) {
+            hospitalSelect.innerHTML = '<option value="">Select Hospital</option>';
+            doctorSelect.innerHTML = '<option value="">First Select Hospital</option>';
+            doctorSelect.disabled = true;
+
+            if (loc && dataHierarchy[loc]) {
+                hospitalSelect.disabled = false;
+                Object.keys(dataHierarchy[loc]).forEach(hosp => {
+                    hospitalSelect.innerHTML += `<option value="${hosp}">${hosp}</option>`;
+                });
+            } else {
+                hospitalSelect.disabled = true;
+                hospitalSelect.innerHTML = '<option value="">First Select Location</option>';
+            }
+        }
+
+        // Helper Function: Populate Doctors based on Hospital
+        function populateDoctors(loc, hosp) {
+            doctorSelect.innerHTML = '<option value="">Select Doctor</option>';
+            if (loc && hosp && dataHierarchy[loc][hosp]) {
+                doctorSelect.disabled = false;
+                dataHierarchy[loc][hosp].forEach(doc => {
+                    doctorSelect.innerHTML += `<option value="${doc}">${doc}</option>`;
+                });
+            } else {
+                doctorSelect.disabled = true;
+                doctorSelect.innerHTML = '<option value="">First Select Hospital</option>';
+            }
+        }
+
+        // Step 1: Location Change Event
+        locationSelect.addEventListener("change", function () {
+            populateHospitals(this.value);
+        });
+
+        // Step 2: Hospital Change Event
+        hospitalSelect.addEventListener("change", function () {
+            populateDoctors(locationSelect.value, this.value);
+        });
+
+        // Step 3: Handle Booking Form Submission
+        appointmentForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const bookingData = {
+                fullName: document.getElementById("fullName").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                location: locationSelect.value,
+                hospital: hospitalSelect.value,
+                doctor: doctorSelect.value,
+                date: document.getElementById("bookingDate").value,
+                time: document.getElementById("bookingTime").value,
+                status: "Upcoming"
+            };
+
+            // Get existing records or initialize new array
+            let records = JSON.parse(localStorage.getItem("medicareRecords")) || [];
+            records.push(bookingData);
+            
+            // Save to LocalStorage
+            localStorage.setItem("medicareRecords", JSON.stringify(records));
+
+            alert("Appointment Booked Successfully!");
+            window.location.href = "records.html"; // Redirect to Records Page
+        });
+
+        // AUTO FILL FUNCTIONALITY FROM URL PARAMETERS
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const doctorParam = urlParams.get('doctor');
+            const hospitalParam = urlParams.get('hospital');
+            const locationParam = urlParams.get('location');
+
+            if (locationParam) {
+                // Find matching location (Case-insensitive)
+                const matchedLoc = Object.keys(dataHierarchy).find(
+                    key => key.toLowerCase() === locationParam.trim().toLowerCase()
+                );
+
+                if (matchedLoc) {
+                    locationSelect.value = matchedLoc;
+                    populateHospitals(matchedLoc);
+
+                    if (hospitalParam) {
+                        // Find matching hospital
+                        const matchedHosp = Object.keys(dataHierarchy[matchedLoc]).find(
+                            key => key.toLowerCase() === hospitalParam.trim().toLowerCase()
+                        );
+
+                        if (matchedHosp) {
+                            hospitalSelect.value = matchedHosp;
+                            populateDoctors(matchedLoc, matchedHosp);
+
+                            if (doctorParam) {
+                                // Find matching doctor
+                                const docList = dataHierarchy[matchedLoc][matchedHosp];
+                                const matchedDoc = docList.find(
+                                    doc => doc.toLowerCase().includes(doctorParam.trim().toLowerCase())
+                                );
+
+                                if (matchedDoc) {
+                                    doctorSelect.value = matchedDoc;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
