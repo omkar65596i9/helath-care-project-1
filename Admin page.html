@@ -477,7 +477,7 @@
         <!-- ===== SIDEBAR ===== -->
         <aside class="sidebar">
             <div class="admin-profile">
-                <img src="file:///C:/Users/ADMIN/Downloads/WhatsApp%20Image%202026-07-31%20at%203.48.44%20PM.jpeg" alt="Admin" />
+                <img src="https://via.placeholder.com/80" alt="Admin" />
                 <h3>omkar Administrator</h3>
                 <p id="adminEmailText">admin@medicare.com</p>
             </div>
@@ -989,13 +989,17 @@
                 }
             });
 
-            logoutBtn.addEventListener('click', function() {
-                localStorage.removeItem('token');
-                localStorage.removeItem('userRole');
-                localStorage.removeItem('userEmail');
-                alert('Logged out successfully!');
-                window.location.href = 'login.html'; 
-            });
+            // ---------- LOGOUT HANDLER (FIXED) ----------
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function() {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('userRole');
+                    localStorage.removeItem('userEmail');
+                    alert('Logged out successfully!');
+                    // Agar login file ka path alag ho toh isey badal lein (jaise './login.html')
+                    window.location.href = 'login.html'; 
+                });
+            }
 
             if (searchInput) searchInput.addEventListener('keyup', renderAppointments);
             if (statusFilter) statusFilter.addEventListener('change', renderAppointments);
