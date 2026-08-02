@@ -35,9 +35,9 @@
 
  <nav>
             <a href="home.html">Home</a>
-            <a href="doctor.html">Doctors</a>
+            <a href="doctor.html" class="active">Doctors</a>
             <a href="appointment.html">Appointment</a>
-            <a href="records.html" class="active">Records</a>
+            <a href="records.html">Records</a>
             <a href="index.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </nav>
         <div class="nav-icons">
@@ -89,12 +89,20 @@ id="deptSelect"
 style="padding:15px;width:250px;border-radius:10px;border:2px solid #42a5f5;font-size:16px;">
 
 <option value="All">All Departments</option>
+<option value="Normal Treatment">Normal Treatment</option>
 <option value="Cardiology">Cardiology</option>
 <option value="Dentist">Dentist</option>
 <option value="Neurology">Neurology</option>
 <option value="Pediatrics">Pediatrics</option>
 <option value="Orthopedic">Orthopedic</option>
 <option value="Gynecology">Gynecology</option>
+<option value="Dermatology">Dermatology</option>
+<option value="Ophthalmology">Ophthalmology</option>
+<option value="General Physician">General Physician</option>
+<option value="Oncology">Oncology</option>
+<option value="Gastroenterology">Gastroenterology</option>
+<option value="Pulmonology">Pulmonology</option>
+<option value="Nephrology">Nephrology</option>
 
 </select>
 
@@ -104,34 +112,1077 @@ style="padding:15px;width:250px;border-radius:10px;border:2px solid #42a5f5;font
 
 <div class="features-grid">
 
-<!-- Doctor 1 -->
+<!-- Normal Treatment Doctors -->
 <div class="feature-card">
-    <img src="images/doctor1.jpg" alt="Dr. Amit Sharma" class="doctor-img">
-    <h3>Dr. Amit Sharma</h3>
-    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <img src="https://randomuser.me/api/portraits/men/101.jpg" alt="Dr. Alok Verma" class="doctor-img">
+    <h3>Dr. Alok Verma</h3>
+    <p><b>Department:</b> <span class="dept-name">Normal Treatment</span></p>
     <p>Experience : 10 Years</p>
-    <p>Consultation : ₹500</p>
-    <p>⭐ 4.9 Rating</p>
-    
-    <!-- Link me URL Parameters add kiye gaye hain -->
-    <a href="boking%20from.html?doctor=Dr.%20Amit%20Sharma&hospital=City%20Care%20Hospital&location=Mumbai" class="btn">
-        Book Appointment
-    </a>
+    <p>Consultation : ₹300</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Alok%20Verma&hospital=City%20Care%20Clinic&location=Mumbai" class="btn">Book Appointment</a>
 </div>
 
-<!-- Doctor 2 -->
 <div class="feature-card">
-    <img src="images/doctor2.jpg" alt="Dr. Priya Patel" class="doctor-img">
-    <h3>Dr. Priya Patel</h3>
-    <p><b>Department:</b> <span class="dept-name">Dentist</span></p>
+    <img src="https://randomuser.me/api/portraits/women/102.jpg" alt="Dr. Sneha Kulkarni" class="doctor-img">
+    <h3>Dr. Sneha Kulkarni</h3>
+    <p><b>Department:</b> <span class="dept-name">Normal Treatment</span></p>
     <p>Experience : 8 Years</p>
-    <p>Consultation : ₹400</p>
-    <p>⭐ 4.8 Rating</p>
-    
-    <a href="boking%20from.html?doctor=Dr.%20Priya%20Patel&hospital=Apollo%20Clinic&location=Pune" class="btn">
-        Book Appointment
-    </a>
+    <p>Consultation : ₹250</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sneha%20Kulkarni&hospital=Sanjeevani%20Clinic&location=Pune" class="btn">Book Appointment</a>
 </div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/103.jpg" alt="Dr. Pankaj Sharma" class="doctor-img">
+    <h3>Dr. Pankaj Sharma</h3>
+    <p><b>Department:</b> <span class="dept-name">Normal Treatment</span></p>
+    <p>Experience : 12 Years</p>
+    <p>Consultation : ₹350</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Pankaj%20Sharma&hospital=Apollo%20Clinic&location=Delhi" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/104.jpg" alt="Dr. Rashmi Patil" class="doctor-img">
+    <h3>Dr. Rashmi Patil</h3>
+    <p><b>Department:</b> <span class="dept-name">Normal Treatment</span></p>
+    <p>Experience : 6 Years</p>
+    <p>Consultation : ₹200</p>
+    <p>⭐ 4.6 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Rashmi%20Patil&hospital=LifeLine%20Hospital&location=Chhatrapati%20Sambhajinagar" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/105.jpg" alt="Dr. Vikas Deshmukh" class="doctor-img">
+    <h3>Dr. Vikas Deshmukh</h3>
+    <p><b>Department:</b> <span class="dept-name">Normal Treatment</span></p>
+    <p>Experience : 9 Years</p>
+    <p>Consultation : ₹300</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Vikas%20Deshmukh&hospital=HealthCare%20Clinic&location=Nagpur" class="btn">Book Appointment</a>
+</div>
+
+<!-- Mumbai Doctors -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Dr. Ramakanta Panda" class="doctor-img">
+    <h3>Dr. Ramakanta Panda</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 35 Years</p>
+    <p>Consultation : ₹1500</p>
+    <p>⭐ 5.0 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Ramakanta%20Panda&hospital=Asian%20Heart%20Institute&location=Mumbai" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Dr. Suresh H Advani" class="doctor-img">
+    <h3>Dr. Suresh H Advani</h3>
+    <p><b>Department:</b> <span class="dept-name">Oncology</span></p>
+    <p>Experience : 45 Years</p>
+    <p>Consultation : ₹1500</p>
+    <p>⭐ 5.0 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Suresh%20H%20Advani&hospital=Nanavati%20Hospital&location=Mumbai" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Dr. Indira Hinduja" class="doctor-img">
+    <h3>Dr. Indira Hinduja</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 40 Years</p>
+    <p>Consultation : ₹1200</p>
+    <p>⭐ 5.0 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Indira%20Hinduja&hospital=P.D.%20Hinduja%20Hospital&location=Mumbai" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="Dr. B K Misra" class="doctor-img">
+    <h3>Dr. B K Misra</h3>
+    <p><b>Department:</b> <span class="dept-name">Neurology</span></p>
+    <p>Experience : 35 Years</p>
+    <p>Consultation : ₹1400</p>
+    <p>⭐ 5.0 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20B%20K%20Misra&hospital=Hinduja%20Hospital&location=Mumbai" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/5.jpg" alt="Dr. Firuza Parikh" class="doctor-img">
+    <h3>Dr. Firuza Parikh</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 35 Years</p>
+    <p>Consultation : ₹1300</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Firuza%20Parikh&hospital=Jaslok%20Hospital&location=Mumbai" class="btn">Book Appointment</a>
+</div>
+
+<!-- Pune Doctors -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/6.jpg" alt="Dr. Parag Sancheti" class="doctor-img">
+    <h3>Dr. Parag Sancheti</h3>
+    <p><b>Department:</b> <span class="dept-name">Orthopedic</span></p>
+    <p>Experience : 28 Years</p>
+    <p>Consultation : ₹1200</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Parag%20Sancheti&hospital=Sancheti%20Hospital&location=Pune" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/7.jpg" alt="Dr. Shirish Hiremath" class="doctor-img">
+    <h3>Dr. Shirish Hiremath</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 32 Years</p>
+    <p>Consultation : ₹1200</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Shirish%20Hiremath&hospital=Ruby%20Hall%20Clinic&location=Pune" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/8.jpg" alt="Dr. Sanjay Chandwani" class="doctor-img">
+    <h3>Dr. Sanjay Chandwani</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 22 Years</p>
+    <p>Consultation : ₹800</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sanjay%20Chandwani&hospital=Sahyadri%20Hospital&location=Pune" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/9.jpg" alt="Dr. Ritu Hinduja" class="doctor-img">
+    <h3>Dr. Ritu Hinduja</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 18 Years</p>
+    <p>Consultation : ₹900</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Ritu%20Hinduja&hospital=Jehangir%20Hospital&location=Pune" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="Dr. Suhas Kulkarni" class="doctor-img">
+    <h3>Dr. Suhas Kulkarni</h3>
+    <p><b>Department:</b> <span class="dept-name">Pediatrics</span></p>
+    <p>Experience : 24 Years</p>
+    <p>Consultation : ₹700</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Suhas%20Kulkarni&hospital=Jupiter%20Hospital&location=Pune" class="btn">Book Appointment</a>
+</div>
+
+<!-- Delhi Doctors -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Dr. Naresh Trehan" class="doctor-img">
+    <h3>Dr. Naresh Trehan</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 40 Years</p>
+    <p>Consultation : ₹1500</p>
+    <p>⭐ 5.0 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Naresh%20Trehan&hospital=Medanta&location=Delhi" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Dr. Randeep Guleria" class="doctor-img">
+    <h3>Dr. Randeep Guleria</h3>
+    <p><b>Department:</b> <span class="dept-name">Pulmonology</span></p>
+    <p>Experience : 35 Years</p>
+    <p>Consultation : ₹1200</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Randeep%20Guleria&hospital=Medanta%20Hospital&location=Delhi" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/13.jpg" alt="Dr. Ashok Seth" class="doctor-img">
+    <h3>Dr. Ashok Seth</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 38 Years</p>
+    <p>Consultation : ₹1500</p>
+    <p>⭐ 5.0 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Ashok%20Seth&hospital=Fortis%20Escorts&location=Delhi" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Dr. Sandeep Vaishya" class="doctor-img">
+    <h3>Dr. Sandeep Vaishya</h3>
+    <p><b>Department:</b> <span class="dept-name">Neurology</span></p>
+    <p>Experience : 28 Years</p>
+    <p>Consultation : ₹1200</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sandeep%20Vaishya&hospital=Fortis%20Hospital&location=Delhi" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="Dr. Y K Mishra" class="doctor-img">
+    <h3>Dr. Y K Mishra</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 32 Years</p>
+    <p>Consultation : ₹1200</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Y%20K%20Mishra&hospital=Manipal%20Hospital&location=Delhi" class="btn">Book Appointment</a>
+</div>
+
+<!-- Chhatrapati Sambhajinagar -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/16.jpg" alt="Dr. Anand Pathak" class="doctor-img">
+    <h3>Dr. Anand Pathak</h3>
+    <p><b>Department:</b> <span class="dept-name">Oncology</span></p>
+    <p>Experience : 25 Years</p>
+    <p>Consultation : ₹1000</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Anand%20Pathak&hospital=Medicover%20Hospital&location=Chhatrapati%20Sambhajinagar" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/17.jpg" alt="Dr. Sachin Phadnis" class="doctor-img">
+    <h3>Dr. Sachin Phadnis</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 20 Years</p>
+    <p>Consultation : ₹700</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sachin%20Phadnis&hospital=Seth%20Nandlal%20Hospital&location=Chhatrapati%20Sambhajinagar" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/18.jpg" alt="Dr. Swati Kulkarni" class="doctor-img">
+    <h3>Dr. Swati Kulkarni</h3>
+    <p><b>Department:</b> <span class="dept-name">Pediatrics</span></p>
+    <p>Experience : 18 Years</p>
+    <p>Consultation : ₹650</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Swati%20Kulkarni&hospital=Ciigma%20Hospital&location=Chhatrapati%20Sambhajinagar" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/19.jpg" alt="Dr. Rahul Shinde" class="doctor-img">
+    <h3>Dr. Rahul Shinde</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 16 Years</p>
+    <p>Consultation : ₹900</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Rahul%20Shinde&hospital=United%20CIIGMA&location=Chhatrapati%20Sambhajinagar" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/20.jpg" alt="Dr. Varsha Patil" class="doctor-img">
+    <h3>Dr. Varsha Patil</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 22 Years</p>
+    <p>Consultation : ₹800</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Varsha%20Patil&hospital=Endoworld%20Hospital&location=Chhatrapati%20Sambhajinagar" class="btn">Book Appointment</a>
+</div>
+
+<!-- Nagpur -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/21.jpg" alt="Dr. Lokendra Singh" class="doctor-img">
+    <h3>Dr. Lokendra Singh</h3>
+    <p><b>Department:</b> <span class="dept-name">Neurology</span></p>
+    <p>Experience : 30 Years</p>
+    <p>Consultation : ₹1100</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Lokendra%20Singh&hospital=CIIMS%20Hospital&location=Nagpur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Dr. Aziz Khan" class="doctor-img">
+    <h3>Dr. Aziz Khan</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 28 Years</p>
+    <p>Consultation : ₹1000</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Aziz%20Khan&hospital=Crescent%20Hospital&location=Nagpur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Dr. Smita Deshmukh" class="doctor-img">
+    <h3>Dr. Smita Deshmukh</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 24 Years</p>
+    <p>Consultation : ₹850</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Smita%20Deshmukh&hospital=Alexis%20Hospital&location=Nagpur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/24.jpg" alt="Dr. Rajesh Swarnakar" class="doctor-img">
+    <h3>Dr. Rajesh Swarnakar</h3>
+    <p><b>Department:</b> <span class="dept-name">Pulmonology</span></p>
+    <p>Experience : 26 Years</p>
+    <p>Consultation : ₹900</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Rajesh%20Swarnakar&hospital=Getwell%20Hospital&location=Nagpur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/25.jpg" alt="Dr. Sanjeev Joshi" class="doctor-img">
+    <h3>Dr. Sanjeev Joshi</h3>
+    <p><b>Department:</b> <span class="dept-name">Orthopedic</span></p>
+    <p>Experience : 22 Years</p>
+    <p>Consultation : ₹800</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sanjeev%20Joshi&hospital=Kingsway%20Hospital&location=Nagpur" class="btn">Book Appointment</a>
+</div>
+
+<!-- Nashik -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/26.jpg" alt="Dr. Aniruddha Dharmadhikari" class="doctor-img">
+    <h3>Dr. Aniruddha Dharmadhikari</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 22 Years</p>
+    <p>Consultation : ₹900</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Aniruddha%20Dharmadhikari&hospital=Six%20Sigma%20Hospital&location=Nashik" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/27.jpg" alt="Dr. Vijay Kakatkar" class="doctor-img">
+    <h3>Dr. Vijay Kakatkar</h3>
+    <p><b>Department:</b> <span class="dept-name">Orthopedic</span></p>
+    <p>Experience : 28 Years</p>
+    <p>Consultation : ₹1000</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Vijay%20Kakatkar&hospital=Kakatkar%20Hospital&location=Nashik" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Dr. Sunita Pawar" class="doctor-img">
+    <h3>Dr. Sunita Pawar</h3>
+    <p><b>Department:</b> <span class="dept-name">Dermatology</span></p>
+    <p>Experience : 16 Years</p>
+    <p>Consultation : ₹600</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sunita%20Pawar&hospital=Apollo%20Clinic&location=Nashik" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/29.jpg" alt="Dr. Sameer Patel" class="doctor-img">
+    <h3>Dr. Sameer Patel</h3>
+    <p><b>Department:</b> <span class="dept-name">Gastroenterology</span></p>
+    <p>Experience : 20 Years</p>
+    <p>Consultation : ₹850</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sameer%20Patel&hospital=Wockhardt%20Hospital&location=Nashik" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/30.jpg" alt="Dr. Madhuri More" class="doctor-img">
+    <h3>Dr. Madhuri More</h3>
+    <p><b>Department:</b> <span class="dept-name">Pediatrics</span></p>
+    <p>Experience : 19 Years</p>
+    <p>Consultation : ₹650</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Madhuri%20More&hospital=Sahyadri%20Hospital&location=Nashik" class="btn">Book Appointment</a>
+</div>
+
+<!-- Kolhapur -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="Dr. Arjun Bhosale" class="doctor-img">
+    <h3>Dr. Arjun Bhosale</h3>
+    <p><b>Department:</b> <span class="dept-name">Orthopedic</span></p>
+    <p>Experience : 24 Years</p>
+    <p>Consultation : ₹850</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Arjun%20Bhosale&hospital=Apple%20Saraswati%20Hospital&location=Kolhapur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Shivaji Patil" class="doctor-img">
+    <h3>Dr. Shivaji Patil</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 30 Years</p>
+    <p>Consultation : ₹700</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Shivaji%20Patil&hospital=Aster%20Aadhar%20Hospital&location=Kolhapur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Dr. Neha Ghatge" class="doctor-img">
+    <h3>Dr. Neha Ghatge</h3>
+    <p><b>Department:</b> <span class="dept-name">Dentist</span></p>
+    <p>Experience : 14 Years</p>
+    <p>Consultation : ₹500</p>
+    <p>⭐ 4.6 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Neha%20Ghatge&hospital=City%20Dental%20Clinic&location=Kolhapur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/34.jpg" alt="Dr. Prakash Jadhav" class="doctor-img">
+    <h3>Dr. Prakash Jadhav</h3>
+    <p><b>Department:</b> <span class="dept-name">Nephrology</span></p>
+    <p>Experience : 21 Years</p>
+    <p>Consultation : ₹900</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Prakash%20Jadhav&hospital=KIMS%20Hospital&location=Kolhapur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/35.jpg" alt="Dr. Rekha Chougule" class="doctor-img">
+    <h3>Dr. Rekha Chougule</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 26 Years</p>
+    <p>Consultation : ₹800</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Rekha%20Chougule&hospital=Chougule%20Hospital&location=Kolhapur" class="btn">Book Appointment</a>
+</div>
+
+<!-- Solapur -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/36.jpg" alt="Dr. Shrikant Deshpande" class="doctor-img">
+    <h3>Dr. Shrikant Deshpande</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 25 Years</p>
+    <p>Consultation : ₹900</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Shrikant%20Deshpande&hospital=Ashwini%20Sahakari%20Hospital&location=Solapur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/37.jpg" alt="Dr. Rameshwar Shinde" class="doctor-img">
+    <h3>Dr. Rameshwar Shinde</h3>
+    <p><b>Department:</b> <span class="dept-name">Pediatrics</span></p>
+    <p>Experience : 20 Years</p>
+    <p>Consultation : ₹600</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Rameshwar%20Shinde&hospital=Yashodhara%20Hospital&location=Solapur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/38.jpg" alt="Dr. Sujata Kulkarni" class="doctor-img">
+    <h3>Dr. Sujata Kulkarni</h3>
+    <p><b>Department:</b> <span class="dept-name">Ophthalmology</span></p>
+    <p>Experience : 18 Years</p>
+    <p>Consultation : ₹650</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sujata%20Kulkarni&hospital=Kulkarni%20Eye%20Hospital&location=Solapur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/39.jpg" alt="Dr. Mangesh Shah" class="doctor-img">
+    <h3>Dr. Mangesh Shah</h3>
+    <p><b>Department:</b> <span class="dept-name">Gastroenterology</span></p>
+    <p>Experience : 17 Years</p>
+    <p>Consultation : ₹800</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Mangesh%20Shah&hospital=Markandey%20Hospital&location=Solapur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/40.jpg" alt="Dr. Anjali Patil" class="doctor-img">
+    <h3>Dr. Anjali Patil</h3>
+    <p><b>Department:</b> <span class="dept-name">Dermatology</span></p>
+    <p>Experience : 15 Years</p>
+    <p>Consultation : ₹600</p>
+    <p>⭐ 4.6 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Anjali%20Patil&hospital=Patil%20Skin%20Clinic&location=Solapur" class="btn">Book Appointment</a>
+</div>
+
+<!-- Amravati -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Dr. Vivek Bhosale" class="doctor-img">
+    <h3>Dr. Vivek Bhosale</h3>
+    <p><b>Department:</b> <span class="dept-name">Neurology</span></p>
+    <p>Experience : 19 Years</p>
+    <p>Consultation : ₹850</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Vivek%20Bhosale&hospital=Dayasagar%20Hospital&location=Amravati" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Dr. Rashmi Deshmukh" class="doctor-img">
+    <h3>Dr. Rashmi Deshmukh</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 23 Years</p>
+    <p>Consultation : ₹750</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Rashmi%20Deshmukh&hospital=Deshmukh%20Hospital&location=Amravati" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="Dr. Nitin Rathi" class="doctor-img">
+    <h3>Dr. Nitin Rathi</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 21 Years</p>
+    <p>Consultation : ₹600</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Nitin%20Rathi&hospital=Rathi%20Hospital&location=Amravati" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Archana Kadam" class="doctor-img">
+    <h3>Dr. Archana Kadam</h3>
+    <p><b>Department:</b> <span class="dept-name">Dentist</span></p>
+    <p>Experience : 12 Years</p>
+    <p>Consultation : ₹500</p>
+    <p>⭐ 4.6 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Archana%20Kadam&hospital=Kadam%20Dental%20Care&location=Amravati" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Dr. Sunil Wankhede" class="doctor-img">
+    <h3>Dr. Sunil Wankhede</h3>
+    <p><b>Department:</b> <span class="dept-name">Orthopedic</span></p>
+    <p>Experience : 25 Years</p>
+    <p>Consultation : ₹800</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sunil%20Wankhede&hospital=Bakhtar%20Hospital&location=Amravati" class="btn">Book Appointment</a>
+</div>
+
+<!-- Nanded -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Dr. Santosh Pawar" class="doctor-img">
+    <h3>Dr. Santosh Pawar</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 20 Years</p>
+    <p>Consultation : ₹850</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Santosh%20Pawar&hospital=Lotus%20Hospital&location=Nanded" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Dr. Meena Deshmukh" class="doctor-img">
+    <h3>Dr. Meena Deshmukh</h3>
+    <p><b>Department:</b> <span class="dept-name">Pediatrics</span></p>
+    <p>Experience : 18 Years</p>
+    <p>Consultation : ₹600</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Meena%20Deshmukh&hospital=Government%20Hospital&location=Nanded" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/48.jpg" alt="Dr. Vijay Bhandari" class="doctor-img">
+    <h3>Dr. Vijay Bhandari</h3>
+    <p><b>Department:</b> <span class="dept-name">Orthopedic</span></p>
+    <p>Experience : 22 Years</p>
+    <p>Consultation : ₹750</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Vijay%20Bhandari&hospital=Bhandari%20Hospital&location=Nanded" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/49.jpg" alt="Dr. Pooja Kadam" class="doctor-img">
+    <h3>Dr. Pooja Kadam</h3>
+    <p><b>Department:</b> <span class="dept-name">Dermatology</span></p>
+    <p>Experience : 11 Years</p>
+    <p>Consultation : ₹550</p>
+    <p>⭐ 4.6 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Pooja%20Kadam&hospital=Skin%20Speciality%20Clinic&location=Nanded" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/50.jpg" alt="Dr. Govind Rathod" class="doctor-img">
+    <h3>Dr. Govind Rathod</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 27 Years</p>
+    <p>Consultation : ₹650</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Govind%20Rathod&hospital=Shri%20Guru%20Gobind%20Hospital&location=Nanded" class="btn">Book Appointment</a>
+</div>
+
+<!-- Jalgaon -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="Dr. Sharad Chaudhari" class="doctor-img">
+    <h3>Dr. Sharad Chaudhari</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 28 Years</p>
+    <p>Consultation : ₹700</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sharad%20Chaudhari&hospital=Chaudhari%20Hospital&location=Jalgaon" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/52.jpg" alt="Dr. Prachi Patil" class="doctor-img">
+    <h3>Dr. Prachi Patil</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 19 Years</p>
+    <p>Consultation : ₹750</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Prachi%20Patil&hospital=Orchid%20Hospital&location=Jalgaon" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/53.jpg" alt="Dr. Bhushan Mahajan" class="doctor-img">
+    <h3>Dr. Bhushan Mahajan</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 16 Years</p>
+    <p>Consultation : ₹850</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Bhushan%20Mahajan&hospital=Gajre%20Hospital&location=Jalgaon" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Dr. Yogesh Jain" class="doctor-img">
+    <h3>Dr. Yogesh Jain</h3>
+    <p><b>Department:</b> <span class="dept-name">Ophthalmology</span></p>
+    <p>Experience : 21 Years</p>
+    <p>Consultation : ₹650</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Yogesh%20Jain&hospital=Jain%20Eye%20Hospital&location=Jalgaon" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Dr. Pallavi Wani" class="doctor-img">
+    <h3>Dr. Pallavi Wani</h3>
+    <p><b>Department:</b> <span class="dept-name">Dentist</span></p>
+    <p>Experience : 13 Years</p>
+    <p>Consultation : ₹500</p>
+    <p>⭐ 4.6 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Pallavi%20Wani&hospital=Wani%20Dental%20Clinic&location=Jalgaon" class="btn">Book Appointment</a>
+</div>
+
+<!-- Latur -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Dr. Balaji Shinde" class="doctor-img">
+    <h3>Dr. Balaji Shinde</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 26 Years</p>
+    <p>Consultation : ₹650</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Balaji%20Shinde&hospital=Apex%20Hospital&location=Latur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/57.jpg" alt="Dr. Smita Karad" class="doctor-img">
+    <h3>Dr. Smita Karad</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 20 Years</p>
+    <p>Consultation : ₹750</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Smita%20Karad&hospital=MIMS%20Hospital&location=Latur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/58.jpg" alt="Dr. Dinesh Patil" class="doctor-img">
+    <h3>Dr. Dinesh Patil</h3>
+    <p><b>Department:</b> <span class="dept-name">Neurology</span></p>
+    <p>Experience : 17 Years</p>
+    <p>Consultation : ₹850</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Dinesh%20Patil&hospital=Patil%20Neuro%20Center&location=Latur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/59.jpg" alt="Dr. Sandeep Deshmukh" class="doctor-img">
+    <h3>Dr. Sandeep Deshmukh</h3>
+    <p><b>Department:</b> <span class="dept-name">Orthopedic</span></p>
+    <p>Experience : 23 Years</p>
+    <p>Consultation : ₹800</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sandeep%20Deshmukh&hospital=Deshmukh%20Hospital&location=Latur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/60.jpg" alt="Dr. Ashwini Mane" class="doctor-img">
+    <h3>Dr. Ashwini Mane</h3>
+    <p><b>Department:</b> <span class="dept-name">Pediatrics</span></p>
+    <p>Experience : 15 Years</p>
+    <p>Consultation : ₹600</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Ashwini%20Mane&hospital=Children%20Care%20Hospital&location=Latur" class="btn">Book Appointment</a>
+</div>
+
+<!-- Sangli -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/61.jpg" alt="Dr. Chandrakanth Patil" class="doctor-img">
+    <h3>Dr. Chandrakanth Patil</h3>
+    <p><b>Department:</b> <span class="dept-name">Orthopedic</span></p>
+    <p>Experience : 29 Years</p>
+    <p>Consultation : ₹900</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Chandrakanth%20Patil&hospital=Wanless%20Hospital&location=Sangli" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/62.jpg" alt="Dr. Usha Kulkarni" class="doctor-img">
+    <h3>Dr. Usha Kulkarni</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 25 Years</p>
+    <p>Consultation : ₹800</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Usha%20Kulkarni&hospital=Kulkarni%20Hospital&location=Sangli" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/63.jpg" alt="Dr. Mahesh Pawar" class="doctor-img">
+    <h3>Dr. Mahesh Pawar</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 18 Years</p>
+    <p>Consultation : ₹850</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Mahesh%20Pawar&hospital=Seva%20Healing%20Hospital&location=Sangli" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/64.jpg" alt="Dr. Abhijit Joshi" class="doctor-img">
+    <h3>Dr. Abhijit Joshi</h3>
+    <p><b>Department:</b> <span class="dept-name">Pulmonology</span></p>
+    <p>Experience : 16 Years</p>
+    <p>Consultation : ₹750</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Abhijit%20Joshi&hospital=Joshi%20Chest%20Clinic&location=Sangli" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Dr. Priya Bhosale" class="doctor-img">
+    <h3>Dr. Priya Bhosale</h3>
+    <p><b>Department:</b> <span class="dept-name">Dermatology</span></p>
+    <p>Experience : 12 Years</p>
+    <p>Consultation : ₹550</p>
+    <p>⭐ 4.6 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Priya%20Bhosale&hospital=Sangli%20Skin%20Care&location=Sangli" class="btn">Book Appointment</a>
+</div>
+
+<!-- Satara -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/66.jpg" alt="Dr. Rajendra Mane" class="doctor-img">
+    <h3>Dr. Rajendra Mane</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 27 Years</p>
+    <p>Consultation : ₹650</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Rajendra%20Mane&hospital=Pratibha%20Hospital&location=Satara" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="Dr. Rohini Kadam" class="doctor-img">
+    <h3>Dr. Rohini Kadam</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 22 Years</p>
+    <p>Consultation : ₹750</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Rohini%20Kadam&hospital=Kadam%20Hospital&location=Satara" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Dr. Milind Shinde" class="doctor-img">
+    <h3>Dr. Milind Shinde</h3>
+    <p><b>Department:</b> <span class="dept-name">Pediatrics</span></p>
+    <p>Experience : 19 Years</p>
+    <p>Consultation : ₹600</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Milind%20Shinde&hospital=Shinde%20Children%20Hospital&location=Satara" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/69.jpg" alt="Dr. Ganesh Patil" class="doctor-img">
+    <h3>Dr. Ganesh Patil</h3>
+    <p><b>Department:</b> <span class="dept-name">Orthopedic</span></p>
+    <p>Experience : 21 Years</p>
+    <p>Consultation : ₹800</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Ganesh%20Patil&hospital=Satara%20Ortho%20Care&location=Satara" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/70.jpg" alt="Dr. Swati Salunkhe" class="doctor-img">
+    <h3>Dr. Swati Salunkhe</h3>
+    <p><b>Department:</b> <span class="dept-name">Dentist</span></p>
+    <p>Experience : 14 Years</p>
+    <p>Consultation : ₹500</p>
+    <p>⭐ 4.6 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Swati%20Salunkhe&hospital=Salunkhe%20Dental&location=Satara" class="btn">Book Appointment</a>
+</div>
+
+<!-- Ahmednagar -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/71.jpg" alt="Dr. Vikram Sethi" class="doctor-img">
+    <h3>Dr. Vikram Sethi</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 24 Years</p>
+    <p>Consultation : ₹900</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Vikram%20Sethi&hospital=Maxcare%20Hospital&location=Ahmednagar" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/72.jpg" alt="Dr. Sunita Gadgil" class="doctor-img">
+    <h3>Dr. Sunita Gadgil</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 26 Years</p>
+    <p>Consultation : ₹800</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sunita%20Gadgil&hospital=Gadgil%20Hospital&location=Ahmednagar" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/73.jpg" alt="Dr. Pramod Pawar" class="doctor-img">
+    <h3>Dr. Pramod Pawar</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 23 Years</p>
+    <p>Consultation : ₹650</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Pramod%20Pawar&hospital=Noble%20Hospital&location=Ahmednagar" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/74.jpg" alt="Dr. Nilesh Kote" class="doctor-img">
+    <h3>Dr. Nilesh Kote</h3>
+    <p><b>Department:</b> <span class="dept-name">Neurology</span></p>
+    <p>Experience : 18 Years</p>
+    <p>Consultation : ₹850</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Nilesh%20Kote&hospital=Anand%20Hospital&location=Ahmednagar" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/75.jpg" alt="Dr. Neeta Londhe" class="doctor-img">
+    <h3>Dr. Neeta Londhe</h3>
+    <p><b>Department:</b> <span class="dept-name">Ophthalmology</span></p>
+    <p>Experience : 17 Years</p>
+    <p>Consultation : ₹600</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Neeta%20Londhe&hospital=Londhe%20Eye%20Hospital&location=Ahmednagar" class="btn">Book Appointment</a>
+</div>
+
+<!-- Akola -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Dr. Ajay Deshmukh" class="doctor-img">
+    <h3>Dr. Ajay Deshmukh</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 25 Years</p>
+    <p>Consultation : ₹650</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Ajay%20Deshmukh&hospital=Icon%20Hospital&location=Akola" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/77.jpg" alt="Dr. Shalini Gawande" class="doctor-img">
+    <h3>Dr. Shalini Gawande</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 21 Years</p>
+    <p>Consultation : ₹750</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Shalini%20Gawande&hospital=Gawande%20Hospital&location=Akola" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/78.jpg" alt="Dr. Ashish Rathi" class="doctor-img">
+    <h3>Dr. Ashish Rathi</h3>
+    <p><b>Department:</b> <span class="dept-name">Orthopedic</span></p>
+    <p>Experience : 19 Years</p>
+    <p>Consultation : ₹800</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Ashish%20Rathi&hospital=Rathi%20Ortho%20Care&location=Akola" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/79.jpg" alt="Dr. Manish Kulkarni" class="doctor-img">
+    <h3>Dr. Manish Kulkarni</h3>
+    <p><b>Department:</b> <span class="dept-name">Pediatrics</span></p>
+    <p>Experience : 16 Years</p>
+    <p>Consultation : ₹600</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Manish%20Kulkarni&hospital=Kulkarni%20Children%20Hospital&location=Akola" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/80.jpg" alt="Dr. Varsha Tayade" class="doctor-img">
+    <h3>Dr. Varsha Tayade</h3>
+    <p><b>Department:</b> <span class="dept-name">Dentist</span></p>
+    <p>Experience : 13 Years</p>
+    <p>Consultation : ₹500</p>
+    <p>⭐ 4.6 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Varsha%20Tayade&hospital=Tayade%20Dental%20Clinic&location=Akola" class="btn">Book Appointment</a>
+</div>
+
+<!-- Chandrapur -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Dr. Harish Zade" class="doctor-img">
+    <h3>Dr. Harish Zade</h3>
+    <p><b>Department:</b> <span class="dept-name">Orthopedic</span></p>
+    <p>Experience : 22 Years</p>
+    <p>Consultation : ₹800</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Harish%20Zade&hospital=Christ%20Hospital&location=Chandrapur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/82.jpg" alt="Dr. Kavita Tekam" class="doctor-img">
+    <h3>Dr. Kavita Tekam</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 19 Years</p>
+    <p>Consultation : ₹700</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Kavita%20Tekam&hospital=Tekam%20Hospital&location=Chandrapur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/83.jpg" alt="Dr. Pankaj Roy" class="doctor-img">
+    <h3>Dr. Pankaj Roy</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 20 Years</p>
+    <p>Consultation : ₹600</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Pankaj%20Roy&hospital=Roy%20Clinic&location=Chandrapur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/84.jpg" alt="Dr. Sumit Sarkar" class="doctor-img">
+    <h3>Dr. Sumit Sarkar</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 17 Years</p>
+    <p>Consultation : ₹850</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sumit%20Sarkar&hospital=City%20Care%20Hospital&location=Chandrapur" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/85.jpg" alt="Dr. Shilpa Meshram" class="doctor-img">
+    <h3>Dr. Shilpa Meshram</h3>
+    <p><b>Department:</b> <span class="dept-name">Dermatology</span></p>
+    <p>Experience : 14 Years</p>
+    <p>Consultation : ₹550</p>
+    <p>⭐ 4.6 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Shilpa%20Meshram&hospital=Meshram%20Skin%20Clinic&location=Chandrapur" class="btn">Book Appointment</a>
+</div>
+
+<!-- Beed -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Dr. Bhagwat Karad" class="doctor-img">
+    <h3>Dr. Bhagwat Karad</h3>
+    <p><b>Department:</b> <span class="dept-name">Pediatrics</span></p>
+    <p>Experience : 28 Years</p>
+    <p>Consultation : ₹700</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Bhagwat%20Karad&hospital=Karad%20Hospital&location=Beed" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/87.jpg" alt="Dr. Sangeeta Jagtap" class="doctor-img">
+    <h3>Dr. Sangeeta Jagtap</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 20 Years</p>
+    <p>Consultation : ₹750</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sangeeta%20Jagtap&hospital=Jagtap%20Hospital&location=Beed" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="Dr. Vinod Kshirsagar" class="doctor-img">
+    <h3>Dr. Vinod Kshirsagar</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 24 Years</p>
+    <p>Consultation : ₹650</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Vinod%20Kshirsagar&hospital=District%20Hospital&location=Beed" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/89.jpg" alt="Dr. Rakesh Pawar" class="doctor-img">
+    <h3>Dr. Rakesh Pawar</h3>
+    <p><b>Department:</b> <span class="dept-name">Orthopedic</span></p>
+    <p>Experience : 18 Years</p>
+    <p>Consultation : ₹750</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Rakesh%20Pawar&hospital=Pawar%20Ortho%20Care&location=Beed" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Dr. Aarti Munde" class="doctor-img">
+    <h3>Dr. Aarti Munde</h3>
+    <p><b>Department:</b> <span class="dept-name">Dentist</span></p>
+    <p>Experience : 12 Years</p>
+    <p>Consultation : ₹500</p>
+    <p>⭐ 4.6 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Aarti%20Munde&hospital=Munde%20Dental%20Clinic&location=Beed" class="btn">Book Appointment</a>
+</div>
+
+<!-- Parbhani -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/91.jpg" alt="Dr. Govind Deshmukh" class="doctor-img">
+    <h3>Dr. Govind Deshmukh</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 26 Years</p>
+    <p>Consultation : ₹650</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Govind%20Deshmukh&hospital=Deshmukh%20Hospital&location=Parbhani" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/92.jpg" alt="Dr. Surekha Kadam" class="doctor-img">
+    <h3>Dr. Surekha Kadam</h3>
+    <p><b>Department:</b> <span class="dept-name">Gynecology</span></p>
+    <p>Experience : 22 Years</p>
+    <p>Consultation : ₹750</p>
+    <p>⭐ 4.8 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Surekha%20Kadam&hospital=Kadam%20Hospital&location=Parbhani" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/93.jpg" alt="Dr. Anand Joshi" class="doctor-img">
+    <h3>Dr. Anand Joshi</h3>
+    <p><b>Department:</b> <span class="dept-name">Pediatrics</span></p>
+    <p>Experience : 17 Years</p>
+    <p>Consultation : ₹600</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Anand%20Joshi&hospital=Joshi%20Children%20Hospital&location=Parbhani" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/94.jpg" alt="Dr. Sanjay Shinde" class="doctor-img">
+    <h3>Dr. Sanjay Shinde</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 19 Years</p>
+    <p>Consultation : ₹850</p>
+    <p>⭐ 4.7 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Sanjay%20Shinde&hospital=Apex%20Heart%20Care&location=Parbhani" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/women/95.jpg" alt="Dr. Deepali Rathod" class="doctor-img">
+    <h3>Dr. Deepali Rathod</h3>
+    <p><b>Department:</b> <span class="dept-name">Ophthalmology</span></p>
+    <p>Experience : 15 Years</p>
+    <p>Consultation : ₹600</p>
+    <p>⭐ 4.6 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Deepali%20Rathod&hospital=Rathod%20Eye%20Hospital&location=Parbhani" class="btn">Book Appointment</a>
+</div>
+
+<!-- Extra Specialists -->
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/96.jpg" alt="Dr. Devi Prasad Shetty" class="doctor-img">
+    <h3>Dr. Devi Prasad Shetty</h3>
+    <p><b>Department:</b> <span class="dept-name">Cardiology</span></p>
+    <p>Experience : 38 Years</p>
+    <p>Consultation : ₹1200</p>
+    <p>⭐ 5.0 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Devi%20Prasad%20Shetty&hospital=Narayana%20Health&location=Mumbai" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/97.jpg" alt="Dr. Arvinder Singh Soin" class="doctor-img">
+    <h3>Dr. Arvinder Singh Soin</h3>
+    <p><b>Department:</b> <span class="dept-name">General Physician</span></p>
+    <p>Experience : 32 Years</p>
+    <p>Consultation : ₹1500</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Arvinder%20Singh%20Soin&hospital=Medanta&location=Delhi" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/98.jpg" alt="Dr. Mohamed Rela" class="doctor-img">
+    <h3>Dr. Mohamed Rela</h3>
+    <p><b>Department:</b> <span class="dept-name">Gastroenterology</span></p>
+    <p>Experience : 32 Years</p>
+    <p>Consultation : ₹1500</p>
+    <p>⭐ 5.0 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Mohamed%20Rela&hospital=Rela%20Institute&location=Mumbai" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/99.jpg" alt="Dr. Ashok Rajgopal" class="doctor-img">
+    <h3>Dr. Ashok Rajgopal</h3>
+    <p><b>Department:</b> <span class="dept-name">Orthopedic</span></p>
+    <p>Experience : 38 Years</p>
+    <p>Consultation : ₹1500</p>
+    <p>⭐ 5.0 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Ashok%20Rajgopal&hospital=Medanta&location=Delhi" class="btn">Book Appointment</a>
+</div>
+
+<div class="feature-card">
+    <img src="https://randomuser.me/api/portraits/men/100.jpg" alt="Dr. Mahipal S Sachdev" class="doctor-img">
+    <h3>Dr. Mahipal S Sachdev</h3>
+    <p><b>Department:</b> <span class="dept-name">Ophthalmology</span></p>
+    <p>Experience : 38 Years</p>
+    <p>Consultation : ₹1200</p>
+    <p>⭐ 4.9 Rating</p>
+    <a href="boking%20from.html?doctor=Dr.%20Mahipal%20S%20Sachdev&hospital=Centre%20for%20Sight&location=Delhi" class="btn">Book Appointment</a>
+</div>
+
 </div>
 
 </section>
