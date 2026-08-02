@@ -16,7 +16,7 @@
 
         if (!token || role !== 'admin') {
             alert('Access Denied! Please login as Admin.');
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
         }
     </script>
     <style>
@@ -989,15 +989,14 @@
                 }
             });
 
-            // ---------- LOGOUT HANDLER (FIXED) ----------
+            // ---------- LOGOUT HANDLER (UPDATED TO INDEX.HTML) ----------
             if (logoutBtn) {
                 logoutBtn.addEventListener('click', function() {
                     localStorage.removeItem('token');
                     localStorage.removeItem('userRole');
                     localStorage.removeItem('userEmail');
                     alert('Logged out successfully!');
-                    // Agar login file ka path alag ho toh isey badal lein (jaise './login.html')
-                    window.location.href = 'login.html'; 
+                    window.location.href = 'index.html'; 
                 });
             }
 
