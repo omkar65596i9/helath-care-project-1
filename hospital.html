@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitals - MediCare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Card Background Image & Custom Styles -->
+    <style>
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Top Background Image Banner */
+        .card-bg-banner {
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-bottom: 3px solid #42a5f5;
+        }
+
+        /* Card Text Body */
+        .card-content {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-content h3 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        .card-content p {
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #fbc02d;
+            font-size: 1.1rem;
+        }
+
+        .card-content .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #42a5f5;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .card-content .btn:hover {
+            background-color: #1e88e5;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <i class="fas fa-heartbeat"></i> MediCare
+    </div>
+     <nav>
+            <a href="home.html">Home</a>
+            <a href="doctor.html">Doctors</a>
+            <a href="appointment.html">Appointment</a>
+            <a href="records.html" class="active">Records</a>
+             <a href="hospitals.html" class="active">Hospitals</a>
+            <a href="index.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+    <div class="nav-icons">
+        <a href="ambulance.html">
+            <i class="fas fa-car"></i>
+        </a>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>
+        <i class="fas fa-hospital"></i>
+        Our Partner Hospitals
+    </h1>
+    <p>
+        Explore top-rated partner hospitals across our medical network.
+    </p>
+</section>
+
+<section class="features-section">
+    <h2 class="section-title">Search Hospitals</h2>
+
+    <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;">
+        <input type="text" id="searchInput" placeholder="Search Hospital Name..." style="padding:15px;width:350px;border-radius:10px;border:2px solid #42a5f5;font-size:16px;">
+    </div>
+
+    <div class="features-grid">
+
+        <!-- 1. MGM Medical College & Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>MGM Medical College & Hospital</h3>
+                <p>⭐ 4.9 Rating</p>
+                <a href="hospital-details.html?hospital=MGM%20Medical%20College" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 2. Kamalnayan Bajaj Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Kamalnayan Bajaj Hospital</h3>
+                <p>⭐ 4.9 Rating</p>
+                <a href="hospital-details.html?hospital=Kamalnayan%20Bajaj%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 3. Medicover Hospitals -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Medicover Hospitals</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Medicover%20Hospitals" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 4. Lilavati Hospital & Research Centre -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Lilavati Hospital & Research Centre</h3>
+                <p>⭐ 5.0 Rating</p>
+                <a href="hospital-details.html?hospital=Lilavati%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 5. Kokilaben Dhirubhai Ambani Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Kokilaben Dhirubhai Ambani Hospital</h3>
+                <p>⭐ 5.0 Rating</p>
+                <a href="hospital-details.html?hospital=Kokilaben%20Ambani%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 6. Bombay Hospital & Medical Research Centre -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Bombay Hospital & Medical Research Centre</h3>
+                <p>⭐ 4.9 Rating</p>
+                <a href="hospital-details.html?hospital=Bombay%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 7. Deenanath Mangeshkar Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Deenanath Mangeshkar Hospital</h3>
+                <p>⭐ 4.9 Rating</p>
+                <a href="hospital-details.html?hospital=Deenanath%20Mangeshkar%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 8. Ruby Hall Clinic -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Ruby Hall Clinic</h3>
+                <p>⭐ 4.9 Rating</p>
+                <a href="hospital-details.html?hospital=Ruby%20Hall%20Clinic" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 9. Sahyadri Super Speciality Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Sahyadri Super Speciality Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Sahyadri%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 10. Kingsway Hospitals -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Kingsway Hospitals</h3>
+                <p>⭐ 4.9 Rating</p>
+                <a href="hospital-details.html?hospital=Kingsway%20Hospitals" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 11. Alexis Multispecialty Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Alexis Multispecialty Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Alexis%20Multispecialty%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 12. CIIMS Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>CIIMS Hospital</h3>
+                <p>⭐ 4.9 Rating</p>
+                <a href="hospital-details.html?hospital=CIIMS%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 13. Six Sigma Medicare & Research Ltd -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Six Sigma Medicare & Research Ltd</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Six%20Sigma%20Medicare" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 14. Apollo Hospitals -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Apollo Hospitals</h3>
+                <p>⭐ 4.9 Rating</p>
+                <a href="hospital-details.html?hospital=Apollo%20Hospitals" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 15. Deepak Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Deepak Hospital</h3>
+                <p>⭐ 4.7 Rating</p>
+                <a href="hospital-details.html?hospital=Deepak%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 16. MGM Hospital & Research Centre -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>MGM Hospital & Research Centre</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=MGM%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 17. Sananjeet Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Sananjeet Hospital</h3>
+                <p>⭐ 4.7 Rating</p>
+                <a href="hospital-details.html?hospital=Sananjeet%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 18. Apple Saraswati Multispecialty Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Apple Saraswati Multispecialty Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Apple%20Saraswati%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 19. Aster Aadhar Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Aster Aadhar Hospital</h3>
+                <p>⭐ 4.9 Rating</p>
+                <a href="hospital-details.html?hospital=Aster%20Aadhar%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 20. D. Y. Patil Hospital & Research Centre -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>D. Y. Patil Hospital & Research Centre</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=D.Y.%20Patil%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 21. Ashwini Sahakari Rujnalaya -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Ashwini Sahakari Rujnalaya</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Ashwini%20Sahakari%20Rujnalaya" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 22. Yashodhara Super Speciality Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Yashodhara Super Speciality Hospital</h3>
+                <p>⭐ 4.7 Rating</p>
+                <a href="hospital-details.html?hospital=Yashodhara%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 23. Markandey Solapur Sahakari Rujnalaya -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Markandey Solapur Sahakari Rujnalaya</h3>
+                <p>⭐ 4.7 Rating</p>
+                <a href="hospital-details.html?hospital=Markandey%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 24. Hi-Tech Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Hi-Tech Hospital</h3>
+                <p>⭐ 4.7 Rating</p>
+                <a href="hospital-details.html?hospital=Hi-Tech%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 25. Dr. Punjabrao Deshmukh Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Dr. Punjabrao Deshmukh Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Dr.%20Punjabrao%20Deshmukh%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 26. Rathi Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Rathi Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Rathi%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 27. Lotus Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Lotus Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Lotus%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 28. Government Medical College & Hospital (GMCH) -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Government Medical College & Hospital (GMCH)</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=GMCH" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 29. Pawar Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Pawar Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Pawar%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 30. Orchid Multispeciality Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Orchid Multispeciality Hospital</h3>
+                <p>⭐ 4.7 Rating</p>
+                <a href="hospital-details.html?hospital=Orchid%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 31. Gajre Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Gajre Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Gajre%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 32. Godavari Medical College & Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Godavari Medical College & Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Godavari%20Medical%20College" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 33. Vivekanand Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Vivekanand Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Vivekanand%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 34. MIMSR Medical College & Yashwantrao Chavan Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>MIMSR Medical College & Yashwantrao Chavan Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=MIMSR%20Medical%20College" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 35. Alfa Super Speciality Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Alfa Super Speciality Hospital</h3>
+                <p>⭐ 4.7 Rating</p>
+                <a href="hospital-details.html?hospital=Alfa%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 36. Wanless Hospital (Miraj) -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Wanless Hospital (Miraj)</h3>
+                <p>⭐ 4.9 Rating</p>
+                <a href="hospital-details.html?hospital=Wanless%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 37. Bharati Hospital & Medical College -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Bharati Hospital & Medical College</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Bharati%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 38. Seva Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Seva Hospital</h3>
+                <p>⭐ 4.7 Rating</p>
+                <a href="hospital-details.html?hospital=Seva%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 39. Pratibha Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Pratibha Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Pratibha%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 40. Geetanjali Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Geetanjali Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Geetanjali%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 41. Sanjivani Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Sanjivani Hospital</h3>
+                <p>⭐ 4.7 Rating</p>
+                <a href="hospital-details.html?hospital=Sanjivani%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 42. Maxcare Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Maxcare Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Maxcare%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 43. Anand Rishiji Hospital & Research Centre -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Anand Rishiji Hospital & Research Centre</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Anand%20Rishiji%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 44. Noble Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Noble Hospital</h3>
+                <p>⭐ 4.7 Rating</p>
+                <a href="hospital-details.html?hospital=Noble%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 45. Icon Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Icon Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Icon%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 46. Ozone Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Ozone Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Ozone%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 47. Christ Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Christ Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Christ%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 48. Humanity Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Humanity Hospital</h3>
+                <p>⭐ 4.7 Rating</p>
+                <a href="hospital-details.html?hospital=Humanity%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 49. City Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>City Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=City%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 50. District Civil Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>District Civil Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=District%20Civil%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 51. Inamdar Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Inamdar Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Inamdar%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 52. Civil Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Civil Hospital</h3>
+                <p>⭐ 4.6 Rating</p>
+                <a href="hospital-details.html?hospital=Civil%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 53. Lotus Super Speciality Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Lotus Super Speciality Hospital</h3>
+                <p>⭐ 4.8 Rating</p>
+                <a href="hospital-details.html?hospital=Lotus%20Hospital" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 54. AIIMS (All India Institute of Medical Sciences) -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>AIIMS (All India Institute of Medical Sciences)</h3>
+                <p>⭐ 5.0 Rating</p>
+                <a href="hospital-details.html?hospital=AIIMS" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 55. Fortis Escorts Heart Institute -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Fortis Escorts Heart Institute</h3>
+                <p>⭐ 5.0 Rating</p>
+                <a href="hospital-details.html?hospital=Fortis%20Escorts" class="btn">View More</a>
+            </div>
+        </div>
+
+        <!-- 56. Max Super Speciality Hospital -->
+        <div class="feature-card">
+            <div class="card-bg-banner" style="background-image: url('https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=500&auto=format&fit=crop');"></div>
+            <div class="card-content">
+                <h3>Max Super Speciality Hospital</h3>
+                <p>⭐ 4.9 Rating</p>
+                <a href="hospital-details.html?hospital=Max%20Super%20Speciality" class="btn">View More</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script src="js/main.js"></script>
+
+<!-- Search Filter Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        const hospitalCards = document.querySelectorAll('.feature-card');
+
+        function filterHospitals() {
+            const searchValue = searchInput.value.toLowerCase().trim();
+
+            hospitalCards.forEach(card => {
+                const textContent = card.textContent.toLowerCase();
+                if (textContent.includes(searchValue)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        if (searchInput) searchInput.addEventListener('keyup', filterHospitals);
+    });
+</script>
+
+</body>
+</html>

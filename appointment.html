@@ -22,8 +22,9 @@
             <a href="doctor.html">Doctors</a>
             <a href="appointment.html">Appointment</a>
             <a href="records.html" class="active">Records</a>
+             <a href="hospitals.html" class="active">Hospitals</a>
             <a href="index.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
-        </nav>
+    </nav>
         <div class="nav-icons">
             <a href="ambulance.html">
                 <i class="fas fa-car" title="Ambulance"></i>
@@ -60,7 +61,24 @@
                         <option value="Mumbai">Mumbai</option>
                         <option value="Pune">Pune</option>
                         <option value="Delhi">Delhi</option>
-                        <option value="Chh.Sambhjinager">Chh.Sambhjinager</option>
+                        <option value="Chhatrapati Sambhajinagar (Aurangabad)">Chhatrapati Sambhajinagar (Aurangabad)</option>
+                        <option value="Nagpur">Nagpur</option>
+                        <option value="Nashik">Nashik</option>
+                        <option value="Jalna">Jalna</option>
+                        <option value="Kolhapur">Kolhapur</option>
+                         <option value="Solapur">Solapur</option>
+                        <option value="Amravati">Amravati</option>
+                        <option value="Nanded">Nanded</option>
+                        <option value="Jalgaon">Jalgaon</option>
+                        <option value="Latur">Latur</option>
+                        <option value="Sangli">Sangli</option>
+                        <option value="Satara">Satara</option>
+                        <option value="Ahmednagar">Ahmednagar</option>
+                        <option value="Akola">Akola</option>
+                        <option value="Chandrapur">Chandrapur</option>
+                        <option value="Beed">Beed</option>
+                        <option value="Parbhani">Parbhani</option>
+                        <option value="Delhi">Delhi</option>
                     </select>
                 </div>
 
@@ -107,16 +125,106 @@
         // Location -> Hospital -> Doctor Data Hierarchy
         const dataHierarchy = {
             "Mumbai": {
-                "Lilavati Hospital": ["Dr. Amit Sharma (Cardiology)", "Dr. Priya Patel (Dentist)"],
-                "Kokilaben Hospital": ["Dr. Rahul Verma (Neurology)", "Dr. Neha Singh (Pediatrics)"]
+                "Lilavati Hospital & Research Centre (Bandra)": ["Dr. Suresh Joshi (Cardiologist)", "Dr. Nitin Dange (Neurosurgeon)"],
+                "Kokilaben Dhirubhai Ambani Hospital (Andheri)": ["Dr. Ramakanta Panda (Cardiac Surgeon)", "Dr. Mandar Nadkarni (Oncologist)"],
+                "Bombay Hospital & Medical Research Centre (Marine Lines)": ["Dr. B. K. Goyal (Cardiologist)", "Dr. Hrishikesh Pai (Gynecologist)"]
+                
             },
             "Pune": {
-                "Ruby Hall Clinic": ["Dr. Arjun Mehta (Orthopedic)", "Dr. Sneha Joshi (Gynecology)"],
-                "Sahyadri Hospital": ["Dr. Amit Sharma (Cardiology)", "Dr. Rahul Verma (Neurology)"]
+                "Deenanath Mangeshkar Hospital (Erandwane)": ["Dr. Dhananjay Kelkar (Onco-Surgeon)", "Dr. Mahesh Joshi (Cardiologist)"],
+                "Ruby Hall Clinic (Sassoon Road)": ["Dr. Purvez Grant (Cardiologist)", "Dr. Sanjay Vora (Neurosurgeon)"],
+                "Sahyadri Super Speciality Hospital (Deccan)": ["Dr. Charudutt Apte (Neurosurgeon)", "Dr. Sharan Patil (Orthopedic Surgeon)"]
             },
+
             "Delhi": {
-                "AIIMS Hospital": ["Dr. Priya Patel (Dentist)", "Dr. Neha Singh (Pediatrics)"],
-                "Max Healthcare": ["Dr. Arjun Mehta (Orthopedic)", "Dr. Sneha Joshi (Gynecology)"]
+                "AIIMS HospitalAIIMS (All India Institute of Medical Sciences)": ["Dr. Randeep Guleria (Pulmonologist)", "Dr. Balram Bhargava (Cardiologist)"],
+                "Fortis Escorts Heart Institute (Okhla)": ["Dr. Ashok Seth (Cardiologist)", "Dr. Z. S. Meharwal (Cardiac Surgeon)"],
+                "Max Super Speciality Hospital (Saket)": ["Dr. Ashok Seth (Cardiologist)", "Dr. Z. S. Meharwal (Cardiac Surgeon)"]
+            },
+             "Chhatrapati Sambhajinagar (Aurangabad)": {
+                "MGM Medical College & Hospital": ["Dr. Pravin Suryawanshi (General/Lap. Surgeon)", "Dr. Anand Nikalje (Nephrologist)"],
+                "Kamalnayan Bajaj Hospital": ["Dr. Prashant Rahate (Neurosurgeon)", "Dr. Milind Vaishnav (Cardiologist)"],
+                "Medicover Hospitals": ["Dr. Abhay Mahajan (Gastroenterologist)", "Dr. Sachin Sonawane (Orthopedic Surgeon)"]
+            },
+             "Nagpur": {
+                "Kingsway Hospitals": ["Dr. Prakash Khetan (Nephrologist)", "Dr. Rajan Barokar (Critical Care Specialist)"],
+                "Alexis Multispecialty Hospital": ["Dr. Amol Kokas (General Physician)", "Dr. Shivam Puniyani (Cardiologist)"],
+                "CIIMS Hospital (Central India Institute of Medical Sciences)": ["Dr. Lokendra Singh (Neurosurgeon)", "Dr. Neeraj Baheti (Neurologist)"]
+            },
+            "Nashik": {
+                "Sahyadri Super Speciality Hospital": ["Dr. Manoj Chopda (Cardiologist)", "Dr. Dnyaneshwar Bhamare (Orthopedic)"],
+                "Six Sigma Medicare & Research Ltd": ["Dr. A. M. Roy (Cardiologist)", "Dr. Abhay Kharat (Gastroenterologist)"],
+                "Apollo Hospitals (Panchavati)": ["Dr. Devendra Patil (General Surgeon)", "Dr. Suchit Saria (Urologist)"]
+            },
+            "Jalna": {
+                "Deepak Hospital": ["Dr. Deepak Sakhare (Physician)", "Dr. Anant Sakhare (Surgeon)"],
+                "MGM Hospital & Research Centre": ["Dr. Rahul Patil (Pediatrician)", "Dr. Sanjay Deshmukh (Gynecologist)"],
+                "Sananjeet Hospital": ["Dr. S. K. Sharma (Orthopedic)", "Dr. P. R. Joshi (General Physician)"]
+            },
+            "Kolhapur": {
+                "Apple Saraswati Multispecialty Hospital": ["Dr. Sandeep Patil (Cardiologist)", "Dr. Rajesh Powar (Plastic Surgeon)"],
+                "Aster Aadhar Hospital": ["Dr. Ulhas Mali (Orthopedic Surgeon)", "Dr. Prasad Raje (Gastroenterologist)"],
+                "D. Y. Patil Hospital & Research Centre": ["Dr. Shimpa Sharma (Physician)", "Dr. Vasundhara Ghorpade (Gynecologist)"]
+            },
+            "Solapur": {
+                "Ashwini Sahakari Rujnalaya": ["Dr. Gurunath Parale (Cardiologist)", "Dr. P. M. Doshi (Neurosurgeon)"],
+                "Yashodhara Super Speciality Hospital": ["Dr. Vikram Doshi (Gastroenterologist)", "Dr. Abhijeet Katikar (Orthopedic)"],
+                "Markandey Solapur Sahakari Rujnalaya": ["Dr. Shrinivas Vatsavayi (Nephrologist)", "Dr. A. S. Patil (General Surgeon)"]
+            },
+            "Amravati": {
+                "Hi-Tech Hospital": ["Dr. Pankaj Rathi (Cardiologist)", "Dr. Sandeep Kadu (Orthopedic)"],
+                "Dr. Punjabrao Deshmukh Hospital": ["Dr. Anil Solanke (General Physician)", "Dr. Archana Deshmukh (Gynecologist)"],
+                "Rathi Hospital": ["Dr. Nilesh Rathi (Gastroenterologist)", "Dr. Swati Rathi (Pediatrician)"]
+            },
+            "Nanded": {
+                "Lotus Hospital": ["Dr. S. K. Kadam (Cardiologist)", "Dr. Rameshwar Naik (Neurosurgeon)"],
+                "Government Medical College & Hospital (GMCH)": ["Dr. Sudhir Deshmukh (Physician)", "Dr. Meena Patil (Gynecologist)"],
+                "Pawar Hospital": ["Dr. Vijay Pawar (Orthopedic)", "Dr. Anjali Pawar (Pediatrician)"]
+            },
+            "Jalgaon": {
+                "Orchid Multispeciality Hospital": ["Dr. Bhushan Patil (Cardiologist)", "Dr. Nilesh Chaudhari (Neurosurgeon)"],
+                "Gajre Hospital": ["Dr. Abhay Gajre (Orthopedic)", "Dr. Suhas Gajre (General Surgeon)"],
+                "Godavari Medical College & Hospital": ["Dr. Prashant Solanke (Physician)", "Dr. Kavita Sharma (Gynecologist)"]
+            },
+            "Latur": {
+                "Vivekanand Hospital": ["Dr. B. B. Thombre (General Surgeon)", "Dr. Sachin Deshmukh (Physician)"],
+                "MIMSR Medical College & Yashwantrao Chavan Hospital": ["Dr. N. P. Jamadar (Pediatrician)", "Dr. Sarita Mantri (Gynecologist)"],
+                "Alfa Super Speciality Hospital": ["Dr. Ashish Patil (Cardiologist)", "Dr. Rahul Zawar (Nephrologist)"]
+            },
+            "Sangli": {
+                "Wanless Hospital (Miraj)": ["Dr. Nathaniel Sane (General Surgeon)", "Dr. Philip Thomas (Cardiologist)"],
+                "Bharati Hospital & Medical College": ["Dr. Shahaji Deshmukh (Physician)", "Dr. Sujata Patil (Gynecologist)"],
+                "Seva Hospital": ["Dr. Milind Kulkarni (Orthopedic)", "Dr. Priya Kulkarni (Pediatrician)"]
+            },
+            "Satara": {
+                "Pratibha Hospital": ["Dr. Mandar Sabnis (General Surgeon)", "Dr. Neha Sabnis (Gynecologist)"],
+                "Geetanjali Hospital": ["Dr. Rajendra Mane (Orthopedic)", "Dr. Smita Mane (Physician)"],
+                "Sanjivani Hospital": ["Dr. Vikram Shinde (Cardiologist)", "Dr. Aarti Shinde (Pediatrician)"]
+            },
+            "Ahmednagar": {
+                "Maxcare Hospital": ["Dr. Vinod Kasliwal (Cardiologist)", "Dr. Sachin Vahadane (Neurosurgeon)"],
+                "Anand Rishiji Hospital & Research Centre": ["Dr. Prakash Kankariya (Ophthalmologist)", "Dr. Sanjay Mutha (General Surgeon)"],
+                "Noble Hospital": ["Dr. Chetan Khare (Orthopedic)", "Dr. Rupali Khare (Gynecologist)"]
+            },
+            "Akola": {
+                "Icon Hospital": ["Dr. Rajesh Rathi (Cardiologist)", "Dr. Sameer Agrawal (Neurologist)"],
+                "Government Medical College & Hospital": ["Dr. Manoj Joshi (Physician)", "Dr. Sunita Patil (Gynecologist)"],
+                "Ozone Hospital": ["Dr. Nitin Kulkarni (Orthopedic)", "Dr. Swati Kulkarni (Pediatrician)"]
+            },
+            "Chandrapur": {
+                "Christ Hospital": ["Dr. Fr. Jose (General Physician)", "Dr. Shalini Thomas (Gynecologist)"],
+                "Humanity Hospital": ["Dr. Farooq Khan (General Surgeon)", "Dr. A. K. Biswas (Orthopedic)"],
+                "City Hospital": ["Dr. Sanjay Jaiswal (Cardiologist)", "Dr. Ritu Jaiswal (Pediatrician)"]
+            },
+            "Beed": {
+                "Deepak Hospital": ["Dr. Deepak Deshmukh (Physician)", "Dr. Sunita Deshmukh (Gynecologist)"],
+                "Sanjeevani Hospital": ["Dr. Radhakishan Pawar (General Surgeon)", "Dr. Amit Joshi (Orthopedic)"],
+                "District Civil Hospital": ["Dr. B. R. Patil (Physician)", "Dr. S. M. Kulkarni (Pediatrician)"]
+            },
+            "Parbhani": {
+                "Inamdar Hospital": ["Dr. S. A. Inamdar (General Surgeon)", "Dr. Ayesha Inamdar (Gynecologist)"],
+                "Civil Hospital": ["Dr. K. M. More (Physician)", "Dr. R. S. Jadhav (Pediatrician)"],
+                "Lotus Super Speciality Hospital": ["Dr. Vijay Patil (Cardiologist)", "Dr. Mahesh Shinde (Orthopedic)"]
             }
         };
 
