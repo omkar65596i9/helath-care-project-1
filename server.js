@@ -29,7 +29,7 @@ const User = mongoose.model('User', userSchema);
 // ==========================================
 // 3. DATABASE CONNECTION & SEEDING
 // ==========================================
-mongoose.connect('mongodb://127.0.0.1:27017/medicare')
+mongoose.connect('mongodb://localhost:27017/medicare')
     .then(() => {
         console.log('✅ Connected to MongoDB Database!');
         seedUsers();
