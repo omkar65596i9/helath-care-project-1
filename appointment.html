@@ -22,7 +22,7 @@
             <a href="doctor.html">Doctors</a>
             <a href="appointment.html">Appointment</a>
             <a href="records.html">Records</a>
-             <a href="hospitals.html">Hospitals</a>
+            <a href="hospitals.html">Hospitals</a>
             <a href="index.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
         <div class="nav-icons">
@@ -66,7 +66,7 @@
                         <option value="Nashik">Nashik</option>
                         <option value="Jalna">Jalna</option>
                         <option value="Kolhapur">Kolhapur</option>
-                         <option value="Solapur">Solapur</option>
+                        <option value="Solapur">Solapur</option>
                         <option value="Amravati">Amravati</option>
                         <option value="Nanded">Nanded</option>
                         <option value="Jalgaon">Jalgaon</option>
@@ -78,7 +78,6 @@
                         <option value="Chandrapur">Chandrapur</option>
                         <option value="Beed">Beed</option>
                         <option value="Parbhani">Parbhani</option>
-                        <option value="Delhi">Delhi</option>
                     </select>
                 </div>
 
@@ -98,7 +97,7 @@
                     </select>
                 </div>
 
-                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap;">
                     <div style="flex: 1; min-width: 200px;">
                         <label style="display:block; margin-bottom: 0.4rem; font-weight: 600; color: #424242; font-size: 0.9rem;">Date</label>
                         <input type="date" id="bookingDate" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #bbdefb; font-size: 0.95rem; outline: none; background: #f8fbff;">
@@ -114,6 +113,44 @@
                     </div>
                 </div>
 
+                <!-- PROFESSIONAL UPLOAD BOX WITH UPDATED TEXT -->
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display:block; margin-bottom: 0.5rem; font-weight: 600; color: #0d47a1; font-size: 0.95rem;">
+                        Upload Medical Document <span style="font-weight: 400; color: #757575; font-size: 0.8rem;">(Optional)</span>
+                    </label>
+                    
+                    <div id="dropZone" style="border: 2px dashed #bbdefb; background: #f8fbff; border-radius: 14px; padding: 1.5rem 1rem; text-align: center; position: relative; cursor: pointer; transition: all 0.3s ease;">
+                        
+                        <!-- Invisible Native Input over entire Box -->
+                        <input type="file" id="medicalFile" accept=".pdf, image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 2;">
+                        
+                        <!-- Default Upload UI -->
+                        <div id="uploadUI">
+                            <!-- Custom PDF Graphic Icon -->
+                            <div style="width: 65px; height: 75px; background: #ffffff; border-radius: 8px; border: 2px solid #e0e0e0; margin: 0 auto 10px auto; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                                <div style="position: absolute; top: 0; right: 0; width: 0; height: 0; border-top: 16px solid #bbdefb; border-left: 16px solid transparent;"></div>
+                                <div style="background: #e53935; color: #ffffff; font-weight: 800; font-size: 0.75rem; padding: 3px 6px; border-radius: 4px; letter-spacing: 0.5px; position: relative; z-index: 1;">PDF</div>
+                                <i class="fas fa-arrow-up" style="position: absolute; bottom: 8px; color: #b0bec5; font-size: 0.9rem;"></i>
+                            </div>
+                            
+                            <p style="margin: 0; font-size: 0.95rem; font-weight: 600; color: #0d47a1;">
+                                <span style="text-decoration: underline;">Upload Medical Document</span>
+                            </p>
+                            <p style="margin: 4px 0 0 0; font-size: 0.78rem; color: #757575;">
+                                Supported formats: PDF, JPG, PNG (Skip if no files)
+                            </p>
+                        </div>
+
+                        <!-- Selected File Preview Container (Hidden by default) -->
+                        <div id="filePreviewUI" style="display: none; align-items: center; justify-content: center; gap: 10px; color: #2e7d32; font-weight: 600; font-size: 0.95rem;">
+                            <i class="fas fa-file-pdf" style="font-size: 1.8rem; color: #e53935;"></i>
+                            <span id="selectedFileName">File Name</span>
+                            <i class="fas fa-check-circle" style="color: #4caf50; font-size: 1.2rem; margin-left: 5px;"></i>
+                        </div>
+
+                    </div>
+                </div>
+
                 <button type="submit" class="btn" style="width: 100%; font-size: 1.1rem; text-align: center; border-radius: 10px;">Book Appointment</button>
             </form>
 
@@ -122,31 +159,28 @@
 
     <!-- Booking Logic & Auto Fill Script -->
     <script>
-        // Location -> Hospital -> Doctor Data Hierarchy
         const dataHierarchy = {
             "Mumbai": {
                 "Lilavati Hospital & Research Centre (Bandra)": ["Dr. Suresh Joshi (Cardiologist)", "Dr. Nitin Dange (Neurosurgeon)"],
                 "Kokilaben Dhirubhai Ambani Hospital (Andheri)": ["Dr. Ramakanta Panda (Cardiac Surgeon)", "Dr. Mandar Nadkarni (Oncologist)"],
                 "Bombay Hospital & Medical Research Centre (Marine Lines)": ["Dr. B. K. Goyal (Cardiologist)", "Dr. Hrishikesh Pai (Gynecologist)"]
-                
             },
             "Pune": {
                 "Deenanath Mangeshkar Hospital (Erandwane)": ["Dr. Dhananjay Kelkar (Onco-Surgeon)", "Dr. Mahesh Joshi (Cardiologist)"],
                 "Ruby Hall Clinic (Sassoon Road)": ["Dr. Purvez Grant (Cardiologist)", "Dr. Sanjay Vora (Neurosurgeon)"],
                 "Sahyadri Super Speciality Hospital (Deccan)": ["Dr. Charudutt Apte (Neurosurgeon)", "Dr. Sharan Patil (Orthopedic Surgeon)"]
             },
-
             "Delhi": {
                 "AIIMS HospitalAIIMS (All India Institute of Medical Sciences)": ["Dr. Randeep Guleria (Pulmonologist)", "Dr. Balram Bhargava (Cardiologist)"],
                 "Fortis Escorts Heart Institute (Okhla)": ["Dr. Ashok Seth (Cardiologist)", "Dr. Z. S. Meharwal (Cardiac Surgeon)"],
                 "Max Super Speciality Hospital (Saket)": ["Dr. Ashok Seth (Cardiologist)", "Dr. Z. S. Meharwal (Cardiac Surgeon)"]
             },
-             "Chhatrapati Sambhajinagar (Aurangabad)": {
+            "Chhatrapati Sambhajinagar (Aurangabad)": {
                 "MGM Medical College & Hospital": ["Dr. Pravin Suryawanshi (General/Lap. Surgeon)", "Dr. Anand Nikalje (Nephrologist)"],
                 "Kamalnayan Bajaj Hospital": ["Dr. Prashant Rahate (Neurosurgeon)", "Dr. Milind Vaishnav (Cardiologist)"],
                 "Medicover Hospitals": ["Dr. Abhay Mahajan (Gastroenterologist)", "Dr. Sachin Sonawane (Orthopedic Surgeon)"]
             },
-             "Nagpur": {
+            "Nagpur": {
                 "Kingsway Hospitals": ["Dr. Prakash Khetan (Nephrologist)", "Dr. Rajan Barokar (Critical Care Specialist)"],
                 "Alexis Multispecialty Hospital": ["Dr. Amol Kokas (General Physician)", "Dr. Shivam Puniyani (Cardiologist)"],
                 "CIIMS Hospital (Central India Institute of Medical Sciences)": ["Dr. Lokendra Singh (Neurosurgeon)", "Dr. Neeraj Baheti (Neurologist)"]
@@ -233,7 +267,6 @@
         const doctorSelect = document.getElementById("doctorSelect");
         const appointmentForm = document.getElementById("appointmentForm");
 
-        // Helper Function: Populate Hospitals based on Location
         function populateHospitals(loc) {
             hospitalSelect.innerHTML = '<option value="">Select Hospital</option>';
             doctorSelect.innerHTML = '<option value="">First Select Hospital</option>';
@@ -250,7 +283,6 @@
             }
         }
 
-        // Helper Function: Populate Doctors based on Hospital
         function populateDoctors(loc, hosp) {
             doctorSelect.innerHTML = '<option value="">Select Doctor</option>';
             if (loc && hosp && dataHierarchy[loc][hosp]) {
@@ -264,44 +296,76 @@
             }
         }
 
-        // Step 1: Location Change Event
         locationSelect.addEventListener("change", function () {
             populateHospitals(this.value);
         });
 
-        // Step 2: Hospital Change Event
         hospitalSelect.addEventListener("change", function () {
             populateDoctors(locationSelect.value, this.value);
         });
 
-        // Step 3: Handle Booking Form Submission
+        const fileInput = document.getElementById("medicalFile");
+        const uploadUI = document.getElementById("uploadUI");
+        const filePreviewUI = document.getElementById("filePreviewUI");
+        const selectedFileName = document.getElementById("selectedFileName");
+        const dropZone = document.getElementById("dropZone");
+
+        fileInput.addEventListener("change", function () {
+            if (this.files && this.files.length > 0) {
+                uploadUI.style.display = "none";
+                filePreviewUI.style.display = "flex";
+                selectedFileName.textContent = this.files[0].name;
+                dropZone.style.background = "#e8f5e9";
+                dropZone.style.borderColor = "#66bb6a";
+            } else {
+                uploadUI.style.display = "block";
+                filePreviewUI.style.display = "none";
+                dropZone.style.background = "#f8fbff";
+                dropZone.style.borderColor = "#bbdefb";
+            }
+        });
+
+        // HANDLE BOOKING FORM SUBMISSION WITH BASE64 FILE CONVERSION
         appointmentForm.addEventListener("submit", function (e) {
             e.preventDefault();
 
-            const bookingData = {
-                fullName: document.getElementById("fullName").value,
-                email: document.getElementById("email").value,
-                phone: document.getElementById("phone").value,
-                location: locationSelect.value,
-                hospital: hospitalSelect.value,
-                doctor: doctorSelect.value,
-                date: document.getElementById("bookingDate").value,
-                time: document.getElementById("bookingTime").value,
-                status: "Upcoming"
-            };
+            const file = fileInput.files[0];
 
-            // Get existing records or initialize new array
-            let records = JSON.parse(localStorage.getItem("medicareRecords")) || [];
-            records.push(bookingData);
-            
-            // Save to LocalStorage
-            localStorage.setItem("medicareRecords", JSON.stringify(records));
+            function saveBookingData(fileData, fileName) {
+                const bookingData = {
+                    id: Date.now(),
+                    fullName: document.getElementById("fullName").value,
+                    email: document.getElementById("email").value,
+                    phone: document.getElementById("phone").value,
+                    location: locationSelect.value,
+                    hospital: hospitalSelect.value,
+                    doctor: doctorSelect.value,
+                    date: document.getElementById("bookingDate").value,
+                    time: document.getElementById("bookingTime").value,
+                    attachedFileData: fileData, // Base64 Data String
+                    attachedFile: fileName,
+                    status: "Upcoming"
+                };
 
-            alert("Appointment Booked Successfully!");
-            window.location.href = "records.html"; // Redirect to Records Page
+                let records = JSON.parse(localStorage.getItem("medicareRecords")) || [];
+                records.push(bookingData);
+                localStorage.setItem("medicareRecords", JSON.stringify(records));
+
+                alert("Appointment Booked Successfully!");
+                window.location.href = "records.html";
+            }
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    saveBookingData(e.target.result, file.name);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                saveBookingData(null, "No File Uploaded");
+            }
         });
 
-        // AUTO FILL FUNCTIONALITY FROM URL PARAMETERS
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const doctorParam = urlParams.get('doctor');
@@ -309,7 +373,6 @@
             const locationParam = urlParams.get('location');
 
             if (locationParam) {
-                // Find matching location (Case-insensitive)
                 const matchedLoc = Object.keys(dataHierarchy).find(
                     key => key.toLowerCase() === locationParam.trim().toLowerCase()
                 );
@@ -319,7 +382,6 @@
                     populateHospitals(matchedLoc);
 
                     if (hospitalParam) {
-                        // Find matching hospital
                         const matchedHosp = Object.keys(dataHierarchy[matchedLoc]).find(
                             key => key.toLowerCase() === hospitalParam.trim().toLowerCase()
                         );
@@ -329,7 +391,6 @@
                             populateDoctors(matchedLoc, matchedHosp);
 
                             if (doctorParam) {
-                                // Find matching doctor
                                 const docList = dataHierarchy[matchedLoc][matchedHosp];
                                 const matchedDoc = docList.find(
                                     doc => doc.toLowerCase().includes(doctorParam.trim().toLowerCase())

@@ -420,6 +420,26 @@
         .action-btn.delete-btn { background: #e53e3e; }
         .action-btn.delete-btn:hover { background: #c53030; }
 
+        .doc-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #0d47a1;
+            background: #e3f2fd;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            border: 1px solid #90caf9;
+            transition: all 0.2s;
+        }
+
+        .doc-link-btn:hover {
+            background: #bbdefb;
+            transform: scale(1.03);
+        }
+
         /* ========== NOTIFICATIONS PANEL ========== */
         .notification-item {
             display: flex;
@@ -568,6 +588,7 @@
                                 <th>Doctor</th>
                                 <th>Hospital / Location</th>
                                 <th>Date & Time</th>
+                                <th>Document</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -749,7 +770,7 @@
                 });
 
                 if (filtered.length === 0) {
-                    appointmentsTableBody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:#757575;">No Appointments Found</td></tr>`;
+                    appointmentsTableBody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:#757575;">No Appointments Found</td></tr>`;
                     return;
                 }
 
@@ -759,6 +780,20 @@
                     const stLower = appStatus.toLowerCase();
                     const locationHosp = `${app.hospital || ''} ${app.location ? '(' + app.location + ')' : ''}` || 'General Hospital';
 
+                    // UPLOADED DOCUMENT BUTTON / LINK
+                    let documentUI = '';
+                    if (app.attachedFileData) {
+                        documentUI = `
+                            <a href="${app.attachedFileData}" target="_blank" class="doc-link-btn" title="${app.attachedFile || 'View Document'}">
+                                <i class="fas fa-external-link-alt"></i> View
+                            </a>
+                        `;
+                    } else if (app.attachedFile && app.attachedFile !== 'No File Uploaded') {
+                        documentUI = `<span style="font-size:0.8rem; color:#1565c0;"><i class="fas fa-file"></i> ${app.attachedFile}</span>`;
+                    } else {
+                        documentUI = `<span style="color:#9e9e9e; font-size:0.8rem;">No File</span>`;
+                    }
+
                     return `
                         <tr>
                             <td>${idx + 1}</td>
@@ -766,6 +801,7 @@
                             <td>${app.doctor || 'N/A'}</td>
                             <td>${locationHosp}</td>
                             <td>${app.date || ''} <small>(${app.time || ''})</small></td>
+                            <td>${documentUI}</td>
                             <td><span class="status-badge ${stLower}">${appStatus}</span></td>
                             <td>
                                 ${stLower !== 'confirmed' ? `<button class="action-btn" onclick="updateAppStatus(${idx}, 'confirmed')">Confirm</button>` : ''}
@@ -885,18 +921,15 @@
             window.removeAdminAccess = async function(adminIdentifier) {
                 if (!confirm('Are you sure you want to remove admin access for this account?')) return;
 
-                // 1. Immediately remove from local array
                 adminList = adminList.filter(a => 
                     a.id !== adminIdentifier && 
                     a._id !== adminIdentifier && 
                     a.email !== adminIdentifier
                 );
 
-                // 2. Save to localstorage and update screen instantly
                 syncLocalStorage();
                 renderAdminTable();
 
-                // 3. Try backend API silently
                 try {
                     const token = localStorage.getItem('token');
                     await fetch(`http://localhost:5000/api/admin/remove-admin`, {
@@ -989,7 +1022,6 @@
                 }
             });
 
-            // ---------- LOGOUT HANDLER (UPDATED TO INDEX.HTML) ----------
             if (logoutBtn) {
                 logoutBtn.addEventListener('click', function() {
                     localStorage.removeItem('token');
